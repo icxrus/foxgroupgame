@@ -150,6 +150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4c0393509384cc94a9197b810e24e0d1,
         type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c0393509384cc94a9197b810e24e0d1,
+        type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -254,7 +259,7 @@ CharacterController:
   m_StepOffset: 0.25
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!114 &4026837145381784908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,10 +272,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 4
-  SprintSpeed: 7
+  MoveSpeed: 6
+  SprintSpeed: 10
   RotationSmoothTime: 0.12
-  SpeedChangeRate: 10
+  SpeedChangeRate: 16
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
   FootstepAudioClips:
   - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
@@ -284,13 +289,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
   - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
   FootstepAudioVolume: 0.3
-  JumpHeight: 1.2
+  JumpHeight: 2
   Gravity: -15
   JumpTimeout: 0.3
   FallTimeout: 0.15
   Grounded: 1
   GroundedOffset: -0.14
-  GroundedRadius: 0.28
+  GroundedRadius: 0.67
   GroundLayers:
     serializedVersion: 2
     m_Bits: 1

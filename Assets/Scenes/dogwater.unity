@@ -611,6 +611,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 599350735039612387, guid: f311581bb82d20b4c8173139117c21ac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555348087228489781, guid: f311581bb82d20b4c8173139117c21ac,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310480449346894558, guid: f311581bb82d20b4c8173139117c21ac,
+        type: 3}
+      propertyPath: field of view
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3961408626160545936, guid: f311581bb82d20b4c8173139117c21ac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -660,6 +675,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026837145381784908, guid: f311581bb82d20b4c8173139117c21ac,
+        type: 3}
+      propertyPath: Gravity
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026837145381784908, guid: f311581bb82d20b4c8173139117c21ac,
+        type: 3}
+      propertyPath: MoveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026837145381784908, guid: f311581bb82d20b4c8173139117c21ac,
+        type: 3}
+      propertyPath: JumpHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026837145381784908, guid: f311581bb82d20b4c8173139117c21ac,
+        type: 3}
+      propertyPath: SprintSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026837145381784908, guid: f311581bb82d20b4c8173139117c21ac,
+        type: 3}
+      propertyPath: GroundedRadius
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026837145381784908, guid: f311581bb82d20b4c8173139117c21ac,
+        type: 3}
+      propertyPath: SpeedChangeRate
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7171199182768672007, guid: f311581bb82d20b4c8173139117c21ac,
         type: 3}
