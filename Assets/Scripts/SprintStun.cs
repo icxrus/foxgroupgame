@@ -19,18 +19,6 @@ public class SprintStun : MonoBehaviour
     private float _initSprintSpeed;
     private bool _hasCollided = false;
 
-    //private void Update()
-    //{
-    //    float currentHorizontalSpeed = new Vector3(_charCont.velocity.x, 0.0f, _charCont.velocity.z).magnitude;
-    //    // Debug.Log("velocity: " + currentHorizontalSpeed);
-
-    //    if (_input.sprint)
-    //    {
-    //    }
-    //    else
-    //    {
-    //    }
-    //}
     public void OnSprint(InputValue value)
     {
         if (value.isPressed)
@@ -85,16 +73,6 @@ public class SprintStun : MonoBehaviour
         _controller.MoveSpeed = _initMoveSpeed;
         _controller.SprintSpeed = _initSprintSpeed;
     }
-    //save og RotationSmoothTime
-    //get input.sprint, if sprinting then make RotSpeed super high, then return it back to normal if not sprinting
-
-    // ----- this can either be in update or a coroutine i think
-    //while sprinting, check for collisions with anything that isnt the ground/player/triggers/whatever using Layers
-    //if collision happens then set moveSpeed to 0 (if it lets u), else keep setting velocity to 0 or someshit to prevent movement
-    //play stunned animation
-    //do a cooldown for the movement to be returned to you
-    //also give a lil velocity backwards from where you are facing to create a "bump"
-    //ends with values returning to normal
 }
 
 //yoinked this from a tutorial (kinda)
@@ -106,4 +84,14 @@ public static class LayerMaskExtensions
     {
         return (mask.value & 1 << layer) > 0;
     }
+    //save og RotationSmoothTime
+    //get input.sprint, if sprinting then make RotSpeed super high, then return it back to normal if not sprinting
+
+    // ----- this can either be in update or a coroutine i think
+    //while sprinting, check for collisions with anything that isnt the ground/player/triggers/whatever using Layers
+    //if collision happens then set moveSpeed to 0 (if it lets u), else keep setting velocity to 0 or someshit to prevent movement
+    //play stunned animation
+    //do a cooldown for the movement to be returned to you
+    //also give a lil velocity backwards from where you are facing to create a "bump"
+    //ends with values returning to normal
 }
