@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PuzzleLocationRandomizer : MonoBehaviour
 {
-    [SerializeField] private List<Transform> possibleLocations = new();
-    [SerializeField] private Transform[] chosenLocations = new Transform[3];
+    public List<Transform> possibleLocations = new();
+    [Tooltip("0 = 2D, 1 = Hidden, 2 = Parkour")]
+    public Transform[] chosenLocations = new Transform[3];
 
     // Start is called before the first frame update
     void Start()
@@ -17,14 +18,25 @@ public class PuzzleLocationRandomizer : MonoBehaviour
             chosenLocations[i] = possibleLocations[index];
             possibleLocations.RemoveAt(index); //Make sure there are no duplicate locations
         }
+
+        //say which ones were chosen
+        Debug.Log($"Chosen locations are: 1. 2D - { chosenLocations[0]}, 2. Hidden - { chosenLocations[1]}, 3. Parkour - { chosenLocations[2]}");
     }
 
     /// <summary>
     /// Returns the randomized puzzle locations.
     /// </summary>
     /// <returns></returns>
-    public Transform[] ReturnPuzzleLocations()
+    public Transform ReturnPuzzle2D()
     {
-        return chosenLocations;
+        return chosenLocations[0];
+    }
+    public Transform ReturnPuzzleHidden()
+    {
+        return chosenLocations[1];
+    }
+    public Transform ReturnPuzzleParkour()
+    {
+        return chosenLocations[2];
     }
 }
