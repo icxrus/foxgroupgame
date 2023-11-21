@@ -14,7 +14,7 @@ public class HiddenPuzzle : MonoBehaviour
     // if key is touched, mark a Bool on the player that says "Yes, I have Key"
     // when player approaches the barrier with the key, barrier disappears
 
-    public PuzzleLocationRandomizer puzzleManager;
+    public PuzzleManager puzzleManager;
     [SerializeField] private Transform puzzleLocation;
 
     [SerializeField] private GameObject barrierPrefab;
@@ -28,7 +28,7 @@ public class HiddenPuzzle : MonoBehaviour
     {
         //puzzle = cub
 
-        puzzleLocation = puzzleManager.ReturnPuzzleHidden();
+        //puzzleLocation = puzzleManager.ReturnPuzzleHidden();
 
         Instantiate(barrierPrefab, puzzleLocation);
 
