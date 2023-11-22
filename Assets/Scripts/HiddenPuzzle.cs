@@ -14,39 +14,31 @@ public class HiddenPuzzle : MonoBehaviour
     // if key is touched, mark a Bool on the player that says "Yes, I have Key"
     // when player approaches the barrier with the key, barrier disappears
 
-    public PuzzleManager puzzleManager;
-    [SerializeField] private Transform puzzleLocation;
-
-    [SerializeField] private GameObject barrierPrefab;
-    [SerializeField] private GameObject keyPrefab;
-
-    [SerializeField] private List<Transform> leftKeyLocations = new();
-    [SerializeField] private List<Transform> rightKeyLocations = new();
-    [SerializeField] private Transform keyLocation;
+    public bool hasKey = false;
+    public BubbleText bubble;
 
     private void Start()
     {
-        //puzzle = cub
-
-        //puzzleLocation = puzzleManager.ReturnPuzzleHidden();
-
-        Instantiate(barrierPrefab, puzzleLocation);
-
-        if (puzzleLocation.tag == "Left")
+        bubble = GetComponent<BubbleText>();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && hasKey == true)
         {
-            //code to run key randomizer
-            int index = Random.Range(0, leftKeyLocations.Count);
-            keyLocation = leftKeyLocations[index];
+            //yes good puzzle solved
+            Debug.Log("puzzle solved bruv");
+            Invoke("DisableObject", 1f);
         }
-        else if (puzzleLocation.tag == "Right")
+        else
         {
-            int index = Random.Range(0, rightKeyLocations.Count);
-            keyLocation = rightKeyLocations[index];
+            //no key yet, tell the player
+            Debug.Log("no key bruv");
+
+            //code for speech bubbles here
         }
-
-        Instantiate(keyPrefab, keyLocation);
-
-        //say which ones were chosen
-        Debug.Log($"Key location is: {keyLocation}");
+    }
+    void DisableObject()
+    {
+        this.gameObject.SetActive(false);
     }
 }

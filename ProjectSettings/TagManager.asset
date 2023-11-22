@@ -7,6 +7,10 @@ TagManager:
   - CinemachineTarget
   - CaveExitA
   - CaveExitB
+  - Left
+  - HiddenPuzzle
+  - BubbleBox
+  - BubbleText
   layers:
   - Default
   - TransparentFX

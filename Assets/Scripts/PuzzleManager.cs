@@ -15,6 +15,13 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private GameObject PuzzleHiddenPrefab;
     [SerializeField] private GameObject PuzzleParkourPrefab;
 
+    //hidden puzzle variables
+    [SerializeField] private GameObject keyPrefab;
+
+    [SerializeField] private List<Transform> leftKeyLocations = new();
+    [SerializeField] private List<Transform> rightKeyLocations = new();
+    private Transform keyLocation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,11 +68,32 @@ public class PuzzleManager : MonoBehaviour
 
         //instantiate Hidden Puzzle
         Instantiate(PuzzleHiddenPrefab, PuzzleHiddenLocation);
+        SetupHidden();
 
         //instantiate Parkour Puzzle
         Instantiate(PuzzleParkourPrefab, PuzzleParkourLocation);
 
         Debug.Log("Spawned puzzles at their randomized locations.");
         return true;
+    }
+    void SetupHidden()
+    {
+        if (PuzzleHiddenLocation.tag == "Left")
+        {
+            //if on left, spawn it on the right
+            int index = Random.Range(0, rightKeyLocations.Count);
+            keyLocation = rightKeyLocations[index];
+        }
+        else
+        {
+            //else it must be on the right, spawn it on the left
+            int index = Random.Range(0, leftKeyLocations.Count);
+            keyLocation = leftKeyLocations[index];
+        }
+
+        Instantiate(keyPrefab, keyLocation);
+
+        //say which one was chosen
+        Debug.Log($"Key location is: {keyLocation}");
     }
 }
