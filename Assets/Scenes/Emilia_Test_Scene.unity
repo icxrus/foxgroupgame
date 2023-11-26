@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.012909874, g: 0.013253534, b: 0.017609408, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -663,9 +663,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  cubPrefab: {fileID: 0}
   Puzzle2DPrefab: {fileID: 0}
   PuzzleHiddenPrefab: {fileID: 0}
   PuzzleParkourPrefab: {fileID: 0}
+  keyPrefab: {fileID: 0}
+  leftKeyLocations: []
+  rightKeyLocations: []
 --- !u!4 &658610548
 Transform:
   m_ObjectHideFlags: 0
@@ -2232,6 +2236,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4016166020748231432, guid: 4379f2ce3701cba459ce8791da2da391,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 62c3333103e83ba40ba82678fdde2041, type: 2}
     - target: {fileID: 6036349005635359292, guid: 4379f2ce3701cba459ce8791da2da391,
         type: 3}
       propertyPath: m_LocalPosition.x
