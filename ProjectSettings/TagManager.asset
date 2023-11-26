@@ -11,6 +11,7 @@ TagManager:
   - HiddenPuzzle
   - BubbleBox
   - BubbleText
+  - Cub
   layers:
   - Default
   - TransparentFX

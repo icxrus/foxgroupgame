@@ -8,12 +8,13 @@ public class PuzzleManager : MonoBehaviour
     public List<Transform> possibleLocations = new();
     [Tooltip("0 = 2D, 1 = Hidden, 2 = Parkour")]
     public Transform[] chosenLocations = new Transform[3];
-    private Transform Puzzle2DLocation;
-    private Transform PuzzleHiddenLocation;
-    private Transform PuzzleParkourLocation;
+    [SerializeField] private GameObject cubPrefab;
     [SerializeField] private GameObject Puzzle2DPrefab;
     [SerializeField] private GameObject PuzzleHiddenPrefab;
     [SerializeField] private GameObject PuzzleParkourPrefab;
+    private Transform Puzzle2DLocation;
+    private Transform PuzzleHiddenLocation;
+    private Transform PuzzleParkourLocation;
 
     //hidden puzzle variables
     [SerializeField] private GameObject keyPrefab;
@@ -22,8 +23,7 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private List<Transform> rightKeyLocations = new();
     private Transform keyLocation;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //Location randomizer at start of game
         for (int i = 0; i < chosenLocations.Length; i++)
@@ -73,6 +73,11 @@ public class PuzzleManager : MonoBehaviour
         //instantiate Parkour Puzzle
         Instantiate(PuzzleParkourPrefab, PuzzleParkourLocation);
 
+        //spawn cubs at puzzles
+        foreach (Transform puzzleLocs in chosenLocations)
+        {
+            Instantiate(cubPrefab, puzzleLocs.transform.position, Quaternion.identity);
+        }
         Debug.Log("Spawned puzzles at their randomized locations.");
         return true;
     }

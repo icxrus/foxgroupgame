@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3961408626160545936}
   - component: {fileID: 8478910530649854397}
+  - component: {fileID: 2515335574565386196}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -256,6 +257,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleBox: {fileID: 3970138538562565730}
   bubbleText: {fileID: 8143878132524889972}
+--- !u!114 &2515335574565386196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171199182768672007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb87d1d36e2255e4884f8896d76c1059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerDuration: 900
+  currentTime: 0
+  puzzleManager: {fileID: 0}
+  deadCubPrefab: {fileID: 752476208215840469, guid: 27c3d5d2c977d7a4aa08d3b1153d62bb,
+    type: 3}
 --- !u!1 &7515155111199135041
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 6
   SprintSpeed: 10
+  lookSensitivity: {x: 5, y: 5}
   RotationSmoothTime: 0.12
   SpeedChangeRate: 3
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
