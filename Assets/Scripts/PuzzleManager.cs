@@ -23,6 +23,11 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private List<Transform> rightKeyLocations = new();
     private Transform keyLocation;
 
+    //Puzzle status keepers, set to true if puzzle has been failed
+    public bool Failed2D = false;
+    public bool FailedHidden = false;
+    public bool FailedParkour = false;
+
     void Awake()
     {
         //Location randomizer at start of game
@@ -39,6 +44,9 @@ public class PuzzleManager : MonoBehaviour
 
         //say which ones were chosen
         Debug.Log($"Chosen locations are: 1. 2D - { Puzzle2DLocation }, 2. Hidden - { PuzzleHiddenLocation }, 3. Parkour - { PuzzleParkourLocation }");
+
+        //make sure puzzles are not failed immediately
+        Failed2D = FailedHidden = FailedParkour = false;
 
         InstantiatePuzzles();
     }

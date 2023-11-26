@@ -4870,6 +4870,7 @@ GameObject:
   - component: {fileID: 8202362796831050858}
   - component: {fileID: 3767905169917212877}
   - component: {fileID: 9031910225953084946}
+  - component: {fileID: 7519615407748901992}
   m_Layer: 0
   m_Name: CaveMouthEntrance_mesh
   m_TagString: Untagged
@@ -4942,6 +4943,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7519615407748901992
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2441328595825949342}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -70794703187671820, guid: 1a142e69b8356e44981027aa6e155c19, type: 3}
 --- !u!1 &2452899462965577555
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,6 +5063,7 @@ GameObject:
   - component: {fileID: 7673870643799181420}
   - component: {fileID: 3450316939279842507}
   - component: {fileID: 7420946265110385172}
+  - component: {fileID: 5449394222451975464}
   m_Layer: 0
   m_Name: CaveMouthEntrance
   m_TagString: Untagged
@@ -5112,6 +5136,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5449394222451975464
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4200418489090522776}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -70794703187671820, guid: 1a142e69b8356e44981027aa6e155c19, type: 3}
 --- !u!1 &6381244279215212678
 GameObject:
   m_ObjectHideFlags: 0
@@ -9988,6 +10034,7 @@ GameObject:
   - component: {fileID: 3690083451693167900}
   - component: {fileID: 8550966876468707771}
   - component: {fileID: 4591033509596868452}
+  - component: {fileID: 8222179080092891947}
   m_Layer: 0
   m_Name: CaveMouthEntrance_mesh
   m_TagString: Untagged
@@ -10060,6 +10107,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8222179080092891947
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133769653334836200}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -70794703187671820, guid: 1a142e69b8356e44981027aa6e155c19, type: 3}
 --- !u!1 &7419391851290688471
 GameObject:
   m_ObjectHideFlags: 0
@@ -10071,6 +10140,7 @@ GameObject:
   - component: {fileID: 609507155046297574}
   - component: {fileID: 2177419631653457298}
   - component: {fileID: 4016166020748231432}
+  - component: {fileID: 4675466121417626128}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -10143,6 +10213,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4675466121417626128
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419391851290688471}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2534964839176971238, guid: e803ec89ed08c0b478d1095a55def520, type: 3}
 --- !u!1 &7516115329402087188
 GameObject:
   m_ObjectHideFlags: 0
