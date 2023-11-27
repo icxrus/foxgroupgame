@@ -8,7 +8,6 @@ public class PuzzleManager : MonoBehaviour
     public List<Transform> possibleLocations = new();
     [Tooltip("0 = 2D, 1 = Hidden, 2 = Parkour")]
     public Transform[] chosenLocations = new Transform[3];
-    [SerializeField] private GameObject cubPrefab;
     [SerializeField] private GameObject Puzzle2DPrefab;
     [SerializeField] private GameObject PuzzleHiddenPrefab;
     [SerializeField] private GameObject PuzzleParkourPrefab;
@@ -73,11 +72,6 @@ public class PuzzleManager : MonoBehaviour
         //instantiate Parkour Puzzle
         Instantiate(PuzzleParkourPrefab, PuzzleParkourLocation);
 
-        //spawn cubs at puzzles
-        foreach (Transform puzzleLocs in chosenLocations)
-        {
-            Instantiate(cubPrefab, puzzleLocs.transform.position, Quaternion.identity);
-        }
         Debug.Log("Spawned puzzles at their randomized locations.");
         return true;
     }
@@ -100,5 +94,25 @@ public class PuzzleManager : MonoBehaviour
 
         //say which one was chosen
         Debug.Log($"Key location is: {keyLocation}");
+    }
+
+    /// <summary>
+    /// Fail a puzzle by giving an index
+    /// </summary>
+    /// <param name="i">0 = 2D, 1 = Hidden, 2 = Parkour</param>
+    public void FailPuzzles(int i)
+    {
+        if (i == 0)
+        {
+            Failed2D = true;
+        }
+        else if (i == 1)
+        {
+            FailedHidden = true;
+        }
+        else if (i == 2)
+        {
+            FailedParkour = true;
+        }
     }
 }

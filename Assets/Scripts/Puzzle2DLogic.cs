@@ -25,6 +25,14 @@ public class Puzzle2DLogic : MonoBehaviour
     [SerializeField] private bool clue3Status;
 
     public CubCollect cubManager;
+    public CubDataHolder cubData;
+
+    public bool puzzle2DCompleted = false;
+
+    private void Awake()
+    {
+        cubData = gameObject.GetComponent<CubDataHolder>();
+    }
 
     public void AdjustFirstClue(int i)
     {
@@ -35,11 +43,13 @@ public class Puzzle2DLogic : MonoBehaviour
         }
 
         clue1Status = CheckIfClueIsFound(firstClueFound);
+        Debug.Log("Clue 1 Status: " + clue1Status);
 
         if (clue1Status)
         {
             supportText.enabled = false;
             furPile.enabled = true;
+            Debug.Log("Clue 1 visible.");
         }
     }
 
@@ -52,11 +62,13 @@ public class Puzzle2DLogic : MonoBehaviour
         }
 
         clue2Status = CheckIfClueIsFound(secondClueFound);
+        Debug.Log("Clue 2 Status: " + clue2Status);
 
         if (clue2Status)
         {
             supportText.enabled = false;
             footSteps.enabled = true;
+            Debug.Log("Clue 2 visible.");
         }
     }
 
@@ -68,12 +80,14 @@ public class Puzzle2DLogic : MonoBehaviour
             supportFakeText.enabled = true;
         }
 
-        clue3Status = CheckIfClueIsFound(firstClueFound);
+        clue3Status = CheckIfClueIsFound(fakeClueFound);
+        Debug.Log("Clue 3 Status: " + clue3Status);
 
         if (clue3Status)
         {
             supportFakeText.enabled = false;
             fakeFurPile.enabled = true;
+            Debug.Log("Clue 3 visible.");
         }
     }
 
@@ -118,13 +132,19 @@ public class Puzzle2DLogic : MonoBehaviour
 
     public void EnterCorrectWay()
     {
+        Debug.Log("Entered correct way.");
         canvas.enabled = false;
         cubManager.AddCubFromScript();
+        puzzle2DCompleted = true;
+        Debug.Log("Completed cub setup.");
     }
 
     public void EnterFakeWay()
     {
+        Debug.Log("Entered wrong way.");
         canvas.enabled = false;
-        //kill cub at puzzle
+        cubData.CubDeathUpdate(0);
+        puzzle2DCompleted = true;
+        Debug.Log("Completed cub death update.");
     }
 }

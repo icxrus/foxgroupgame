@@ -53,23 +53,26 @@ public class CubDataHolder : MonoBehaviour
     /// <summary>
     /// Updates cub life status to dead and removes prefab from puzzle location
     /// </summary>
-    /// <param name="cubIndex">0 for cub 1, 1 for cub 2 and 2 for cub 3</param>
+    /// <param name="cubIndex">0 for puzzle 1 cub, 1 for puzzle 2 cub and 2 for puzzle 3 cub</param>
     public void CubDeathUpdate(int cubIndex)
     {
         if (cubIndex == 0)
         {
             isCub1Dead = true;
             CubPrefabRemover(cub1);
+            puzzleManager.FailPuzzles(0);
         }
         else if (cubIndex == 1)
         {
             isCub2Dead = true;
             CubPrefabRemover(cub2);
+            puzzleManager.FailPuzzles(1);
         }
         else if (cubIndex == 2)
         {
             isCub3Dead = true;
             CubPrefabRemover(cub3);
+            puzzleManager.FailPuzzles(2);
         }
         else
         {
