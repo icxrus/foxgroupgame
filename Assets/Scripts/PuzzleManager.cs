@@ -55,18 +55,10 @@ public class PuzzleManager : MonoBehaviour
     /// Returns the randomized puzzle locations.
     /// </summary>
     /// <returns></returns>
-   /* public Transform ReturnPuzzle2D()
+    public Transform[] ReturnPuzzleLocations()
     {
-        return chosenLocations[0];
+        return chosenLocations;
     }
-    public Transform ReturnPuzzleHidden()
-    {
-        return chosenLocations[1];
-    }
-    public Transform ReturnPuzzleParkour()
-    {
-        return chosenLocations[2];
-    }*/
 
     //Instantiates all the puzzles at their correct locations.
     private bool InstantiatePuzzles()

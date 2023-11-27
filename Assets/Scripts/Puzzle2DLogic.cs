@@ -24,6 +24,8 @@ public class Puzzle2DLogic : MonoBehaviour
     [SerializeField] private bool clue2Status;
     [SerializeField] private bool clue3Status;
 
+    public CubCollect cubManager;
+
     public void AdjustFirstClue(int i)
     {
         if (!firstClueFound[i])
@@ -94,12 +96,13 @@ public class Puzzle2DLogic : MonoBehaviour
             return false;
     }
 
-    public void EnterArea()
+    public void OpenAreaCanvas()
     {
         canvas.enabled = true;
+
     }
 
-    public void EnterFakeArea()
+    public void OpenFakeAreaCanvas()
     {
         fakeCanvas.enabled = true;
     }
@@ -111,5 +114,17 @@ public class Puzzle2DLogic : MonoBehaviour
     public void ExitFakeView()
     {
         fakeCanvas.enabled = false;
+    }
+
+    public void EnterCorrectWay()
+    {
+        canvas.enabled = false;
+        cubManager.AddCubFromScript();
+    }
+
+    public void EnterFakeWay()
+    {
+        canvas.enabled = false;
+        //kill cub at puzzle
     }
 }

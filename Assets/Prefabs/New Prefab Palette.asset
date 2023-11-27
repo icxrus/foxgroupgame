@@ -16,9 +16,9 @@ MonoBehaviour:
   Groups:
   - GroupName: Tree
     Items:
-    - Name: OptimizedCherryTree
+    - Name: OptimizedCherryTreeV2
       GameObjectVariants:
-      - {fileID: 8473617924997063723, guid: 8094fd8599786514d92c1f98a10365b0, type: 3}
+      - {fileID: 8170204243763257878, guid: a29196c7309551d43ba7347e6344c905, type: 3}
       Rotation:
         Constant: {x: 0, y: 0, z: 0}
         Min: {x: 0, y: 0, z: 0}
@@ -27,8 +27,8 @@ MonoBehaviour:
       Scale:
         Mode: 3
         MinScale: {x: 1, y: 1, z: 1}
-        MaxScale: {x: 1, y: 2, z: 1}
-        UnitformScaling: 0
+        MaxScale: {x: 1, y: 1, z: 1}
+        UnitformScaling: 1
       AdvancedOptions:
         AllowPlacementCollisions: 0
         MultiplyPrefabScale: 1
@@ -39,7 +39,7 @@ MonoBehaviour:
         SpacingFactor: 1
         RotationOffset: {x: 0, y: 0, z: 0}
         NameType: 0
-      IsAdvancesOptionsOpenInEditor: 1
+      IsAdvancesOptionsOpenInEditor: 0
       IsVariantsOpen: 0
       VariantsScroll: {x: 0, y: 0}
       IsOpenInEditor: 1
