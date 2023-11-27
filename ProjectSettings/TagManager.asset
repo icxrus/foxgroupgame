@@ -12,6 +12,8 @@ TagManager:
   - BubbleBox
   - BubbleText
   - Cub
+  - TP2D_In
+  - TP2D_Out
   layers:
   - Default
   - TransparentFX

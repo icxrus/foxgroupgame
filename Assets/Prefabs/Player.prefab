@@ -270,8 +270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerDuration: 900
-  currentTime: 0
-  puzzleManager: {fileID: 0}
   deadCubPrefab: {fileID: 752476208215840469, guid: 27c3d5d2c977d7a4aa08d3b1153d62bb,
     type: 3}
 --- !u!1 &7515155111199135041
@@ -841,7 +839,7 @@ MonoBehaviour:
   timerDelay: 1
   layerMasks:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
 --- !u!114 &4777579106977322
 MonoBehaviour:
   m_ObjectHideFlags: 0
