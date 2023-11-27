@@ -29,9 +29,15 @@ public class Puzzle2DLogic : MonoBehaviour
 
     public bool puzzle2DCompleted = false;
 
+    private Transform tpOut;
+
+    private GameObject player;
+
     private void Awake()
     {
         cubData = gameObject.GetComponent<CubDataHolder>();
+        tpOut = GameObject.FindGameObjectWithTag("TP2D_Out").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void AdjustFirstClue(int i)
@@ -137,6 +143,7 @@ public class Puzzle2DLogic : MonoBehaviour
         cubManager.AddCubFromScript();
         puzzle2DCompleted = true;
         Debug.Log("Completed cub setup.");
+
     }
 
     public void EnterFakeWay()
