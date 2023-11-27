@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5785636609893354036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6848109870549387627}
+  - component: {fileID: 9011913615580015571}
+  - component: {fileID: 4523502354624809422}
+  - component: {fileID: 3790687451185473236}
+  m_Layer: 0
+  m_Name: Puzzle Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6848109870549387627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5785636609893354036}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9011913615580015571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5785636609893354036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd96b2c06cee6e44f9fb3797b6976ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleLocations: []
+  chosenLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Puzzle2DPrefab: {fileID: 0}
+  PuzzleHiddenPrefab: {fileID: 0}
+  PuzzleParkourPrefab: {fileID: 0}
+  keyPrefab: {fileID: 0}
+  leftKeyLocations: []
+  rightKeyLocations: []
+  Failed2D: 0
+  FailedHidden: 0
+  FailedParkour: 0
+--- !u!114 &4523502354624809422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5785636609893354036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f226d7d5ab6e96458c2151ecec94c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstClueFound: 0000
+  secondClueFound: 000000
+  fakeClueFound: 0000
+  canvas: {fileID: 0}
+  fakeCanvas: {fileID: 0}
+  furPile: {fileID: 0}
+  footSteps: {fileID: 0}
+  fakeFurPile: {fileID: 0}
+  supportText: {fileID: 0}
+  supportFakeText: {fileID: 0}
+  clue1Status: 0
+  clue2Status: 0
+  clue3Status: 0
+  cubManager: {fileID: 0}
+  cubData: {fileID: 0}
+  puzzle2DCompleted: 0
+--- !u!114 &3790687451185473236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5785636609893354036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a5fea6f70abce419dc633e62e1e7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubPrefab: {fileID: 0}
+  deadCubPrefab: {fileID: 0}
+  cubLocationAtPuzzle:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  cub1Location: {fileID: 0}
+  isCub1Dead: 0
+  cub2Location: {fileID: 0}
+  isCub2Dead: 0
+  cub3Location: {fileID: 0}
+  isCub3Dead: 0
