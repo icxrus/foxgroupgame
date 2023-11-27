@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b03310998a7dd4baa01c1e4bafa7f9, type: 3}
+  m_Name: New Prefab Palette
+  m_EditorClassIdentifier: 
+  ShortKey: 0
+  Groups:
+  - GroupName: Tree
+    Items:
+    - Name: OptimizedCherryTree
+      GameObjectVariants:
+      - {fileID: 8473617924997063723, guid: 8094fd8599786514d92c1f98a10365b0, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 1, y: 2, z: 1}
+        UnitformScaling: 0
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 1
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    NewGroupItem:
+      Name: 
+      GameObjectVariants:
+      - {fileID: 0}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 1, y: 1, z: 1}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 0
+    IsOpenInEditor: 1
