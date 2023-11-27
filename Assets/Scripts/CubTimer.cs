@@ -5,10 +5,9 @@ using UnityEngine;
 public class CubTimer : MonoBehaviour
 {
     [SerializeField] private float timerDuration = 900.0f; // 15 mins in secs
-    [SerializeField] private float currentTime;
-    [SerializeField] private PuzzleManager puzzleManager;
     [SerializeField] private GameObject deadCubPrefab;
     private List<GameObject> allCubs = new List<GameObject>();
+    private float currentTime;
     private bool runOnce = false;
 
     void Start()
