@@ -63,13 +63,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e8c2cbf9784efec41a2ada24adf558cb, type: 2}
+    - target: {fileID: -263241434891415403, guid: 2ad39d6a02b85bb49a5f8034e88af4b8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -263241434891415403, guid: 2ad39d6a02b85bb49a5f8034e88af4b8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -263241434891415403, guid: 2ad39d6a02b85bb49a5f8034e88af4b8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2ad39d6a02b85bb49a5f8034e88af4b8,
         type: 3}
       propertyPath: m_Name
       value: puska
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 711042455162589753, guid: 2ad39d6a02b85bb49a5f8034e88af4b8, type: 3}
+    - {fileID: 3208930821350709546, guid: 2ad39d6a02b85bb49a5f8034e88af4b8, type: 3}
+    - {fileID: -8260699945196299424, guid: 2ad39d6a02b85bb49a5f8034e88af4b8, type: 3}
+    - {fileID: 8773824500547853944, guid: 2ad39d6a02b85bb49a5f8034e88af4b8, type: 3}
+    - {fileID: 1823959618453807600, guid: 2ad39d6a02b85bb49a5f8034e88af4b8, type: 3}
+    - {fileID: 1498086814160118729, guid: 2ad39d6a02b85bb49a5f8034e88af4b8, type: 3}
+    - {fileID: -3180053455708563319, guid: 2ad39d6a02b85bb49a5f8034e88af4b8, type: 3}
+    - {fileID: -4042923789245631282, guid: 2ad39d6a02b85bb49a5f8034e88af4b8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ad39d6a02b85bb49a5f8034e88af4b8, type: 3}
