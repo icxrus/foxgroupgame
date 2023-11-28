@@ -56,6 +56,7 @@ public class CubDataHolder : MonoBehaviour
     /// <param name="cubIndex">0 for puzzle 1 cub, 1 for puzzle 2 cub and 2 for puzzle 3 cub</param>
     public void CubDeathUpdate(int cubIndex)
     {
+        //Turn into single if statement where index is used to determine which cub is killed
         if (cubIndex == 0)
         {
             isCub1Dead = true;

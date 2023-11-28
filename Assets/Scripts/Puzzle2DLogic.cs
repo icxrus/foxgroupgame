@@ -10,8 +10,8 @@ public class Puzzle2DLogic : MonoBehaviour
     [SerializeField] private bool[] secondClueFound = new bool[3];
     [SerializeField] private bool[] fakeClueFound = new bool[2];
 
-    public Canvas canvas;
-    public Canvas fakeCanvas;
+    public GameObject canvas;
+    public GameObject fakeCanvas;
 
     public Image furPile;
     public Image footSteps;
@@ -116,44 +116,44 @@ public class Puzzle2DLogic : MonoBehaviour
             return false;
     }
 
-    public void OpenAreaCanvas()
-    {
-        canvas.enabled = true;
-
-    }
-
-    public void OpenFakeAreaCanvas()
-    {
-        fakeCanvas.enabled = true;
-    }
-
     public void ExitView()
     {
-        canvas.enabled = false;
+        canvas.SetActive(false);
+        player.SetActive(true);
+        Cursor.visible = true;
     }
     public void ExitFakeView()
     {
-        fakeCanvas.enabled = false;
+        fakeCanvas.SetActive(false);
+        player.SetActive(true);
+        Cursor.visible = true;
     }
 
     public void EnterCorrectWay()
     {
         Debug.Log("Entered correct way.");
-        canvas.enabled = false;
+        canvas.SetActive(false);
         cubManager.AddCubFromScript();
         puzzle2DCompleted = true;
         Debug.Log("Completed cub setup.");
         TeleportPlayerOutOfPuzzle();
+        player.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void EnterFakeWay()
     {
         Debug.Log("Entered wrong way.");
-        canvas.enabled = false;
+        fakeCanvas.SetActive(false);
         cubData.CubDeathUpdate(0);
         puzzle2DCompleted = true;
         Debug.Log("Completed cub death update.");
         TeleportPlayerOutOfPuzzle();
+        player.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     public void TeleportPlayerOutOfPuzzle()

@@ -51,7 +51,7 @@ public class PuzzleManager : MonoBehaviour
         PuzzleParkourLocation = chosenLocations[2];
 
         //say which ones were chosen
-        Debug.Log($"Chosen locations are: 1. 2D - { Puzzle2DLocation }, 2. Hidden - { PuzzleHiddenLocation }, 3. Parkour - { PuzzleParkourLocation }");
+        Debug.Log($"Chosen locations are: 1. 2D - { Puzzle2DLocation.position }, 2. Hidden - { PuzzleHiddenLocation.position }, 3. Parkour - { PuzzleParkourLocation.position }");
 
         //make sure puzzles are not failed immediately
         Failed2D = FailedHidden = FailedParkour = false;
