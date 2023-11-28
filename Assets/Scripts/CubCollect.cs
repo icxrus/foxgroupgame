@@ -18,19 +18,17 @@ public class CubCollect : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            fogDensity = RenderSettings.fogDensity;
-
-            float newFogDensity = fogDensity * 0.8f;
-            RenderSettings.fogDensity = newFogDensity;
-
-            Debug.Log("Fog Density: " + fogDensity);
-
-            OnCubCollected?.Invoke();
+            CubTriggered();
             gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
     public void AddCubFromScript()
+    {
+        CubTriggered();
+    }
+
+    void CubTriggered()
     {
         fogDensity = RenderSettings.fogDensity;
 

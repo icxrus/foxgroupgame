@@ -1369,18 +1369,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1683879596 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7737231038985441595, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
-    type: 3}
-  m_PrefabInstance: {fileID: 2335124889008112516}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd96b2c06cee6e44f9fb3797b6976ed3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1769755030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,57 +1798,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2617775133149840284, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
+    - target: {fileID: 5785636609893354036, guid: 0ad940c6f73ede64a9297e8369e104d8,
         type: 3}
       propertyPath: m_Name
-      value: PuzzleManager
+      value: Puzzle Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 4531880089270169412, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
+    - target: {fileID: 6848109870549387627, guid: 0ad940c6f73ede64a9297e8369e104d8,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2484508
       objectReference: {fileID: 0}
-    - target: {fileID: 4531880089270169412, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
+    - target: {fileID: 6848109870549387627, guid: 0ad940c6f73ede64a9297e8369e104d8,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.4153948
       objectReference: {fileID: 0}
-    - target: {fileID: 4531880089270169412, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
+    - target: {fileID: 6848109870549387627, guid: 0ad940c6f73ede64a9297e8369e104d8,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.045598
       objectReference: {fileID: 0}
-    - target: {fileID: 4531880089270169412, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
+    - target: {fileID: 6848109870549387627, guid: 0ad940c6f73ede64a9297e8369e104d8,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4531880089270169412, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
+    - target: {fileID: 6848109870549387627, guid: 0ad940c6f73ede64a9297e8369e104d8,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4531880089270169412, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
+    - target: {fileID: 6848109870549387627, guid: 0ad940c6f73ede64a9297e8369e104d8,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4531880089270169412, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
+    - target: {fileID: 6848109870549387627, guid: 0ad940c6f73ede64a9297e8369e104d8,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4531880089270169412, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
+    - target: {fileID: 6848109870549387627, guid: 0ad940c6f73ede64a9297e8369e104d8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4531880089270169412, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
+    - target: {fileID: 6848109870549387627, guid: 0ad940c6f73ede64a9297e8369e104d8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4531880089270169412, guid: 85b49bdbac0fd5f428ccd0a9f2a50366,
+    - target: {fileID: 6848109870549387627, guid: 0ad940c6f73ede64a9297e8369e104d8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
@@ -1931,7 +1919,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 85b49bdbac0fd5f428ccd0a9f2a50366, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 0ad940c6f73ede64a9297e8369e104d8, type: 3}
 --- !u!1001 &3899382221262714271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2083,7 +2071,7 @@ PrefabInstance:
         type: 3}
       propertyPath: puzzleManager
       value: 
-      objectReference: {fileID: 1683879596}
+      objectReference: {fileID: 0}
     - target: {fileID: 3961408626160545936, guid: f311581bb82d20b4c8173139117c21ac,
         type: 3}
       propertyPath: m_LocalPosition.x
