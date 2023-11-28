@@ -14,6 +14,7 @@ TagManager:
   - Cub
   - TP2D_In
   - TP2D_Out
+  - RandomLocation
   layers:
   - Default
   - TransparentFX

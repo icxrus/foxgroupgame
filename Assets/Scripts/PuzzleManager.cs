@@ -29,6 +29,15 @@ public class PuzzleManager : MonoBehaviour
 
     void Awake()
     {
+        //Find all the possible puzzle locations
+        GameObject[] tmp = GameObject.FindGameObjectsWithTag("RandomLocation");
+
+        foreach (GameObject item in tmp)
+        {
+            possibleLocations.Add(item.transform);
+        }
+
+
         //Location randomizer at start of game
         for (int i = 0; i < chosenLocations.Length; i++)
         {
