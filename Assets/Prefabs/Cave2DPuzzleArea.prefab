@@ -5007,6 +5007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3668769638699981295}
   - component: {fileID: 6668302378261910030}
+  - component: {fileID: 8216015924677815011}
   m_Layer: 0
   m_Name: CaveExitA
   m_TagString: CaveExitA
@@ -5052,6 +5053,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0.81, y: 0.84, z: 0}
+--- !u!114 &8216015924677815011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4152818176444531541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96520cb4d8c0584ea14d293583d0b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  fakeCanvas: {fileID: 0}
 --- !u!1 &4200418489090522776
 GameObject:
   m_ObjectHideFlags: 0
@@ -10363,6 +10378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8073683457801855129}
   - component: {fileID: 8495567813314100121}
+  - component: {fileID: 203787576683588009}
   m_Layer: 0
   m_Name: CaveExitB
   m_TagString: CaveExitB
@@ -10408,3 +10424,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0.87, y: 0.85, z: 0}
+--- !u!114 &203787576683588009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881288649439345187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96520cb4d8c0584ea14d293583d0b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  fakeCanvas: {fileID: 0}

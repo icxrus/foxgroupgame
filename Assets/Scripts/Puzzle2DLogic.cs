@@ -143,7 +143,7 @@ public class Puzzle2DLogic : MonoBehaviour
         cubManager.AddCubFromScript();
         puzzle2DCompleted = true;
         Debug.Log("Completed cub setup.");
-
+        TeleportPlayerOutOfPuzzle();
     }
 
     public void EnterFakeWay()
@@ -153,5 +153,16 @@ public class Puzzle2DLogic : MonoBehaviour
         cubData.CubDeathUpdate(0);
         puzzle2DCompleted = true;
         Debug.Log("Completed cub death update.");
+        TeleportPlayerOutOfPuzzle();
+    }
+
+    public void TeleportPlayerOutOfPuzzle()
+    {
+        CharacterController charControl = player.gameObject.GetComponent<CharacterController>();
+        Debug.Log("Attempting to Teleport Player");
+        charControl.enabled = false;
+        player.gameObject.transform.position = tpOut.position;
+        charControl.enabled = true;
+        Debug.Log("Teleported.");
     }
 }
