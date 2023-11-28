@@ -9,6 +9,7 @@ public class CubFollow : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float followSpeed = 5f;
     [SerializeField] private float distanceBehind = 1.0f;
+    [SerializeField] private float cubElevation = 0.25f;
 
     void Update()
     {
@@ -31,7 +32,8 @@ public class CubFollow : MonoBehaviour
     void FollowPlayer()
     {
         //cub 0 follows player
-        Vector3 targetPosition = player.position - player.forward * distanceBehind;
+        //Vector3 targetPosition = player.position - player.forward * distanceBehind;
+        Vector3 targetPosition = new Vector3(player.position.x, player.position.y + cubElevation, player.position.z) - player.forward * distanceBehind;
         Vector3 lookAtPosition = new Vector3(player.position.x, cubAmount[0].transform.position.y, player.position.z);
 
         cubAmount[0].transform.position = Vector3.Lerp(cubAmount[0].transform.position, targetPosition, followSpeed * Time.deltaTime);
@@ -51,6 +53,7 @@ public class CubFollow : MonoBehaviour
 
 
             Vector3 targetPosition = cubToFollow.position - cubToFollow.forward * distanceBehind;
+            //Vector3 targetPosition = new Vector3(cubToFollow.position.x, cubToFollow.position.y + 1, cubToFollow.position.z) - cubToFollow.forward * distanceBehind;
             Vector3 lookAtPosition = new Vector3(cubToFollow.position.x, cubFollowing.transform.position.y, cubToFollow.position.z);
 
             cubFollowing.transform.position = Vector3.Lerp(cubFollowing.transform.position, targetPosition, followSpeed * Time.deltaTime);

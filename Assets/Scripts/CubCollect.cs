@@ -14,6 +14,14 @@ public class CubCollect : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<CubFollow>();
         OnCubCollected += player.AddCub;
     }
+    private void Update()
+    {
+        //debug to spawn in a cub follower
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            CubTriggered();
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
