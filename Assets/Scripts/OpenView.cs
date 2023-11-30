@@ -10,17 +10,15 @@ public class OpenView : MonoBehaviour
 
     private void Awake()
     {
-        canvas = GameObject.FindGameObjectWithTag("Canvas2DReal");
-        fakeCanvas = GameObject.FindGameObjectWithTag("Canvas2DFake");
+        //canvas = GameObject.FindGameObjectWithTag("Canvas2DReal");
+        //fakeCanvas = GameObject.FindGameObjectWithTag("Canvas2DFake");
         player = GameObject.FindGameObjectWithTag("Player");
-
-        
     }
-    private void Start()
-    {
-        canvas.SetActive(false);
-        fakeCanvas.SetActive(false);
-    }
+    //private void Start()
+    //{
+    //    canvas.SetActive(false);
+    //    fakeCanvas.SetActive(false);
+    //}
 
     private void OnTriggerEnter(Collider other)
     {

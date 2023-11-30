@@ -24,11 +24,12 @@ public class Puzzle2DLogic : MonoBehaviour
     [SerializeField] private bool clue2Status;
     [SerializeField] private bool clue3Status;
 
-    public CubCollect cubManager;
+    public CubCollect cubCollect;
     public CubDataHolder cubData;
 
     public bool puzzle2DCompleted = false;
 
+    private Transform nextRoom;
     private Transform tpOut;
 
     private GameObject player;
@@ -36,7 +37,8 @@ public class Puzzle2DLogic : MonoBehaviour
     private void Awake()
     {
         cubData = gameObject.GetComponent<CubDataHolder>();
-        tpOut = GameObject.FindGameObjectWithTag("TP2D_Out").transform;
+
+        nextRoom = GameObject.FindGameObjectWithTag("TP2D_NextRoom").transform;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -132,12 +134,12 @@ public class Puzzle2DLogic : MonoBehaviour
     public void EnterCorrectWay()
     {
         Debug.Log("Entered correct way.");
+
         canvas.SetActive(false);
-        cubManager.AddCubFromScript();
         puzzle2DCompleted = true;
-        Debug.Log("Completed cub setup.");
-        TeleportPlayerOutOfPuzzle();
         player.SetActive(true);
+        GoToNext();
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -145,24 +147,22 @@ public class Puzzle2DLogic : MonoBehaviour
     public void EnterFakeWay()
     {
         Debug.Log("Entered wrong way.");
+
+        cubData.CubDeath(0);
+
         fakeCanvas.SetActive(false);
-        cubData.CubDeathUpdate(0);
         puzzle2DCompleted = true;
-        Debug.Log("Completed cub death update.");
-        TeleportPlayerOutOfPuzzle();
         player.SetActive(true);
+        GoToNext();
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Locked;
-        
     }
-
-    public void TeleportPlayerOutOfPuzzle()
+    void GoToNext()
     {
         CharacterController charControl = player.gameObject.GetComponent<CharacterController>();
-        Debug.Log("Attempting to Teleport Player");
         charControl.enabled = false;
-        player.gameObject.transform.position = tpOut.position;
+        player.gameObject.transform.position = nextRoom.position;
         charControl.enabled = true;
-        Debug.Log("Teleported.");
     }
 }

@@ -5,28 +5,20 @@ using UnityEngine;
 public class PuzzleManager : MonoBehaviour
 {
     [Header("Add at least 3+ object transforms to this list to run the randomizer.")]
+    [SerializeField] private GameObject cubPrefab;
     public List<Transform> possibleLocations = new();
     [Tooltip("0 = 2D, 1 = Hidden, 2 = Parkour")]
     public Transform[] chosenLocations = new Transform[3];
+    public List<GameObject> cubLocationAtPuzzle = new List<GameObject>();
     [SerializeField] private GameObject Puzzle2DPrefab;
     [SerializeField] private GameObject PuzzleHiddenPrefab;
     [SerializeField] private GameObject PuzzleParkourPrefab;
-    private Transform Puzzle2DLocation;
-    private Transform PuzzleHiddenLocation;
-    private Transform PuzzleParkourLocation;
 
     //hidden puzzle variables
     [SerializeField] private GameObject keyPrefab;
-
     [SerializeField] private List<Transform> leftKeyLocations = new();
     [SerializeField] private List<Transform> rightKeyLocations = new();
     private Transform keyLocation;
-
-    //Puzzle status keepers, set to true if puzzle has been failed
-    public bool Failed2D = false;
-    public bool FailedHidden = false;
-    public bool FailedParkour = false;
-
     void Awake()
     {
         //Find all the possible puzzle locations
@@ -37,6 +29,19 @@ public class PuzzleManager : MonoBehaviour
             possibleLocations.Add(item.transform);
         }
 
+        GameObject[] tmp2 = GameObject.FindGameObjectsWithTag("LeftKey");
+
+        foreach (GameObject item in tmp2)
+        {
+           leftKeyLocations.Add(item.transform);
+        }
+
+        GameObject[] tmp3 = GameObject.FindGameObjectsWithTag("RightKey");
+
+        foreach (GameObject item in tmp3)
+        {
+            rightKeyLocations.Add(item.transform);
+        }
 
         //Location randomizer at start of game
         for (int i = 0; i < chosenLocations.Length; i++)
@@ -45,48 +50,29 @@ public class PuzzleManager : MonoBehaviour
             chosenLocations[i] = possibleLocations[index];
             possibleLocations.RemoveAt(index); //Make sure there are no duplicate locations
         }
-
-        Puzzle2DLocation = chosenLocations[0];
-        PuzzleHiddenLocation = chosenLocations[1];
-        PuzzleParkourLocation = chosenLocations[2];
-
         //say which ones were chosen
-        Debug.Log($"Chosen locations are: 1. 2D - { Puzzle2DLocation.position }, 2. Hidden - { PuzzleHiddenLocation.position }, 3. Parkour - { PuzzleParkourLocation.position }");
-
-        //make sure puzzles are not failed immediately
-        Failed2D = FailedHidden = FailedParkour = false;
-
+        Debug.Log($"Chosen locations are: 1. 2D - { chosenLocations[0].position }, 2. Hidden - { chosenLocations[1].position }, 3. Parkour - { chosenLocations[2].position }");
         InstantiatePuzzles();
     }
 
-    /// <summary>
-    /// Returns the randomized puzzle locations.
-    /// </summary>
-    /// <returns></returns>
-    public Transform[] ReturnPuzzleLocations()
-    {
-        return chosenLocations;
-    }
-
     //Instantiates all the puzzles at their correct locations.
-    private bool InstantiatePuzzles()
+    private void InstantiatePuzzles()
     {
         //Instantiate 2D Puzzle
-        Instantiate(Puzzle2DPrefab, Puzzle2DLocation);
+        Instantiate(Puzzle2DPrefab, chosenLocations[0]);
 
         //instantiate Hidden Puzzle
-        Instantiate(PuzzleHiddenPrefab, PuzzleHiddenLocation);
+        Instantiate(PuzzleHiddenPrefab, chosenLocations[1]);
         SetupHidden();
 
         //instantiate Parkour Puzzle
-        Instantiate(PuzzleParkourPrefab, PuzzleParkourLocation);
+        Instantiate(PuzzleParkourPrefab, chosenLocations[2]);
 
         Debug.Log("Spawned puzzles at their randomized locations.");
-        return true;
     }
     void SetupHidden()
     {
-        if (PuzzleHiddenLocation.tag == "Left")
+        if (chosenLocations[1].tag == "Left")
         {
             //if on left, spawn it on the right
             int index = Random.Range(0, rightKeyLocations.Count);
@@ -104,24 +90,12 @@ public class PuzzleManager : MonoBehaviour
         //say which one was chosen
         Debug.Log($"Key location is: {keyLocation}");
     }
-
     /// <summary>
-    /// Fail a puzzle by giving an index
+    /// Returns the randomized puzzle locations.
     /// </summary>
-    /// <param name="i">0 = 2D, 1 = Hidden, 2 = Parkour</param>
-    public void FailPuzzles(int i)
+    /// <returns></returns>
+    public Transform[] ReturnPuzzleLocations()
     {
-        if (i == 0)
-        {
-            Failed2D = true;
-        }
-        else if (i == 1)
-        {
-            FailedHidden = true;
-        }
-        else if (i == 2)
-        {
-            FailedParkour = true;
-        }
+        return chosenLocations;
     }
 }

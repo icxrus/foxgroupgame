@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4825090099272984671}
   - component: {fileID: 1573547031223198244}
-  - component: {fileID: 7685245196402101650}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -81,21 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleBox: {fileID: 0}
   bubbleText: {fileID: 0}
---- !u!114 &7685245196402101650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8956881955650679733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb87d1d36e2255e4884f8896d76c1059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerDuration: 900
-  deadCubPrefab: {fileID: 752476208215840469, guid: 27c3d5d2c977d7a4aa08d3b1153d62bb,
-    type: 3}
 --- !u!1001 &1080834641090050219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -623,6 +607,7 @@ MonoBehaviour:
   player: {fileID: 7497779836324876844}
   followSpeed: 5
   distanceBehind: 1
+  cubElevation: 0.25
 --- !u!136 &6505284503422374624
 CapsuleCollider:
   m_ObjectHideFlags: 0

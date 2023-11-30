@@ -5,15 +5,20 @@ using UnityEngine;
 public class CubTimer : MonoBehaviour
 {
     [SerializeField] private float timerDuration = 900.0f; // 15 mins in secs
+    [SerializeField] private float currentTime;
     [SerializeField] private GameObject deadCubPrefab;
+    private CubDataHolder cubData;
     private List<GameObject> allCubs = new List<GameObject>();
-    private float currentTime;
     private bool runOnce = false;
 
     void Start()
     {
         currentTime = timerDuration;
-
+        cubData = GetComponent<CubDataHolder>();
+        Invoke("GetCubs", 0.5f);
+    }
+    void GetCubs()
+    {
         GameObject[] taggedCubs = GameObject.FindGameObjectsWithTag("Cub");
 
         foreach (GameObject cub in taggedCubs)
@@ -24,6 +29,7 @@ public class CubTimer : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("allCubs is" + allCubs.Count);
         if (currentTime > 0)
         {
             currentTime -= Time.deltaTime;
@@ -36,10 +42,6 @@ public class CubTimer : MonoBehaviour
             KillCub();
             Debug.Log("Cub dies now");
         }
-
-        //float minutes = Mathf.Floor(currentTime / 60);
-        //float seconds = Mathf.Floor(currentTime % 60);
-        //Debug.Log(string.Format("{0:00}:{1:00}", minutes, seconds));
     }
     void KillCub()
     {
@@ -48,6 +50,7 @@ public class CubTimer : MonoBehaviour
 
         if (allCubs[cubToKill].gameObject != null)
         {
+            cubData.isCubDead[cubToKill] = true;
             Instantiate(deadCubPrefab, allCubs[cubToKill].transform.position, Quaternion.identity);
             Destroy(allCubs[cubToKill]);
             runOnce = false;

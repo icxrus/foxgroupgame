@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9011913615580015571}
   - component: {fileID: 4523502354624809422}
   - component: {fileID: 3790687451185473236}
+  - component: {fileID: -2068465910499041743}
   m_Layer: 0
   m_Name: Puzzle Manager
   m_TagString: Untagged
@@ -46,20 +47,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd96b2c06cee6e44f9fb3797b6976ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cubPrefab: {fileID: 0}
   possibleLocations: []
   chosenLocations:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  Puzzle2DPrefab: {fileID: 0}
-  PuzzleHiddenPrefab: {fileID: 0}
-  PuzzleParkourPrefab: {fileID: 0}
-  keyPrefab: {fileID: 0}
+  cubLocationAtPuzzle: []
+  Puzzle2DPrefab: {fileID: 3501229771419707940, guid: 7e35c4e8cfa4b6148a68af7fe7a95300,
+    type: 3}
+  PuzzleHiddenPrefab: {fileID: 7498300929446872353, guid: 9100f2d5b2b60e34ba9a4a6b9149f49e,
+    type: 3}
+  PuzzleParkourPrefab: {fileID: 8630696125957002686, guid: 8bc77dffcd6206547a05a0824e518b87,
+    type: 3}
+  keyPrefab: {fileID: 5111106082495584928, guid: 5a2522ac0bbaee44dadb7f7d76260d67,
+    type: 3}
   leftKeyLocations: []
   rightKeyLocations: []
-  Failed2D: 0
-  FailedHidden: 0
-  FailedParkour: 0
 --- !u!114 &4523502354624809422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +89,7 @@ MonoBehaviour:
   clue1Status: 0
   clue2Status: 0
   clue3Status: 0
-  cubManager: {fileID: 0}
+  cubCollect: {fileID: 0}
   cubData: {fileID: 0}
   puzzle2DCompleted: 0
 --- !u!114 &3790687451185473236
@@ -100,15 +104,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a5fea6f70abce419dc633e62e1e7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubPrefab: {fileID: 0}
-  deadCubPrefab: {fileID: 0}
-  cubLocationAtPuzzle:
+  cubPrefab: {fileID: 1611749069834793012, guid: 6fd57777a7ff3e14ab4a3d97d83a54f6,
+    type: 3}
+  deadCubPrefab: {fileID: 1611749069834793012, guid: 6a19b63adde4a2e47af547178514cd7f,
+    type: 3}
+  cubLocations:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  cub1Location: {fileID: 0}
-  isCub1Dead: 0
-  cub2Location: {fileID: 0}
-  isCub2Dead: 0
-  cub3Location: {fileID: 0}
-  isCub3Dead: 0
+  isCubDead: 000000
+--- !u!114 &-2068465910499041743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5785636609893354036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb87d1d36e2255e4884f8896d76c1059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerDuration: 900
+  deadCubPrefab: {fileID: 1611749069834793012, guid: 6a19b63adde4a2e47af547178514cd7f,
+    type: 3}

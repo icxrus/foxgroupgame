@@ -17,6 +17,13 @@ TagManager:
   - RandomLocation
   - Canvas2DReal
   - Canvas2DFake
+  - LeftKey
+  - RightKey
+  - CubSpawnLoc
+  - 2DPuzzle
+  - ParkourPuzzle
+  - TP2D_NextRoom
+  - PuzzleManager
   layers:
   - Default
   - TransparentFX
