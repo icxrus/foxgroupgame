@@ -6,4 +6,9 @@ public class GlobalVariables : MonoBehaviour
 {
     public GameObject bubbleBox;
     public TextMeshProUGUI bubbleText;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 }
