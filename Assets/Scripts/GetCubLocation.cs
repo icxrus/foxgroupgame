@@ -9,7 +9,7 @@ public class GetCubLocation : MonoBehaviour
     {
         cubData = GameObject.FindGameObjectWithTag("PuzzleManager").GetComponent<CubDataHolder>();
 
-        Transform here = this.gameObject.transform.parent.parent;
+        Transform here = this.gameObject.transform.parent;
         if (here.CompareTag("2DPuzzle"))
         {
             cubData.cubLocations[0] = this.gameObject;

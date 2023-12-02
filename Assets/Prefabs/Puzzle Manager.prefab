@@ -58,9 +58,9 @@ MonoBehaviour:
     type: 3}
   PuzzleHiddenPrefab: {fileID: 7498300929446872353, guid: 9100f2d5b2b60e34ba9a4a6b9149f49e,
     type: 3}
-  PuzzleParkourPrefab: {fileID: 8630696125957002686, guid: 8bc77dffcd6206547a05a0824e518b87,
+  PuzzleParkourPrefab: {fileID: 2300719428041873004, guid: b2a0385a7f908d64889cf81f390e0c79,
     type: 3}
-  keyPrefab: {fileID: 5111106082495584928, guid: 5a2522ac0bbaee44dadb7f7d76260d67,
+  keyPrefab: {fileID: 374289202576707483, guid: 02d59bad778ad784c97c77fb2a2bcf38,
     type: 3}
   leftKeyLocations: []
   rightKeyLocations: []
@@ -126,5 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerDuration: 900
+  currentTime: 0
   deadCubPrefab: {fileID: 1611749069834793012, guid: 6a19b63adde4a2e47af547178514cd7f,
     type: 3}
