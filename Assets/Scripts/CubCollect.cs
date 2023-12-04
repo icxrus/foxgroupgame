@@ -27,7 +27,7 @@ public class CubCollect : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             CubTriggered();
             //gameObject.GetComponent<BoxCollider>().enabled = false;

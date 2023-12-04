@@ -28,6 +28,7 @@ public class Puzzle2DLogic : MonoBehaviour
     public CubDataHolder cubData;
 
     public bool puzzle2DCompleted = false;
+    public bool inView = false;
 
     private Transform nextRoom;
     private Transform tpOut;
@@ -122,12 +123,14 @@ public class Puzzle2DLogic : MonoBehaviour
     {
         canvas.SetActive(false);
         player.SetActive(true);
+        inView = false;
         Cursor.visible = true;
     }
     public void ExitFakeView()
     {
         fakeCanvas.SetActive(false);
         player.SetActive(true);
+        inView = false;
         Cursor.visible = true;
     }
 
@@ -153,16 +156,19 @@ public class Puzzle2DLogic : MonoBehaviour
         fakeCanvas.SetActive(false);
         puzzle2DCompleted = true;
         player.SetActive(true);
-        GoToNext();
+        CharacterController charControl = player.GetComponent<CharacterController>();
+        charControl.enabled = false;
+        player.transform.position = tpOut.position;
+        charControl.enabled = true;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
     void GoToNext()
     {
-        CharacterController charControl = player.gameObject.GetComponent<CharacterController>();
+        CharacterController charControl = player.GetComponent<CharacterController>();
         charControl.enabled = false;
-        player.gameObject.transform.position = nextRoom.position;
+        player.transform.position = nextRoom.position;
         charControl.enabled = true;
     }
 }

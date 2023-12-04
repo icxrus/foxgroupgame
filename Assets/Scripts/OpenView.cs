@@ -7,34 +7,41 @@ public class OpenView : MonoBehaviour
     public GameObject canvas;
     public GameObject fakeCanvas;
     private GameObject player;
+    private Puzzle2DLogic logic;
 
     private void Awake()
     {
-        //canvas = GameObject.FindGameObjectWithTag("Canvas2DReal");
-        //fakeCanvas = GameObject.FindGameObjectWithTag("Canvas2DFake");
+        canvas = GameObject.FindGameObjectWithTag("Canvas2DReal");
+        fakeCanvas = GameObject.FindGameObjectWithTag("Canvas2DFake");
         player = GameObject.FindGameObjectWithTag("Player");
+        logic = GameObject.FindGameObjectWithTag("PuzzleManager").GetComponent<Puzzle2DLogic>();
     }
-    //private void Start()
-    //{
-    //    canvas.SetActive(false);
-    //    fakeCanvas.SetActive(false);
-    //}
+    private void Start()
+    {
+        canvas.SetActive(false);
+        fakeCanvas.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && gameObject.CompareTag("CaveExitA"))
+        if (!logic.inView)
         {
-            canvas.SetActive(true);
-            player.SetActive(false);
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else if (other.CompareTag("Player") && gameObject.CompareTag("CaveExitB"))
-        {
-            fakeCanvas.SetActive(true);
-            player.SetActive(false);
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.None;
+            if (other.CompareTag("Player") && gameObject.CompareTag("CaveExitA"))
+            {
+                canvas.SetActive(true);
+                player.SetActive(false);
+                logic.inView = true;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else if (other.CompareTag("Player") && gameObject.CompareTag("CaveExitB"))
+            {
+                fakeCanvas.SetActive(true);
+                logic.inView = true;
+                player.SetActive(false);
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 }
