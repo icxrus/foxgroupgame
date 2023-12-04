@@ -5,6 +5,7 @@ using UnityEngine;
 public class CubCollect : MonoBehaviour
 {
     private CubFollow player;
+    private CubDataHolder cubData;
     private float fogDensity;
     public delegate void CubCollected();
     public event CubCollected OnCubCollected;
@@ -12,7 +13,9 @@ public class CubCollect : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<CubFollow>();
+        cubData = GameObject.FindWithTag("PuzzleManager").GetComponent<CubDataHolder>();
         OnCubCollected += player.AddCub;
+        OnCubCollected += cubData.CubSaved;
     }
     private void Update()
     {

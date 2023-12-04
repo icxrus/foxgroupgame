@@ -6,6 +6,7 @@ public class GlobalVariables : MonoBehaviour
 {
     public GameObject bubbleBox;
     public TextMeshProUGUI bubbleText;
+    public GameObject endScreen;
 
     private void Start()
     {
