@@ -447,7 +447,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 455730}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.000008537736, y: 90, z: -69.99999}
 --- !u!33 &3313848
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -615,7 +615,7 @@ Transform:
   - {fileID: 445814}
   - {fileID: 420778}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -80.00001, y: 86.98053, z: 89.99994}
 --- !u!111 &11160076
 Animation:
   m_ObjectHideFlags: 0
@@ -747,7 +747,7 @@ Transform:
   - {fileID: 438454}
   - {fileID: 493954}
   m_Father: {fileID: 421922}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 53.829674, y: -14.7262745, z: -85.12179}
 --- !u!1 &144926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,7 +1612,7 @@ Transform:
   - {fileID: 480818}
   - {fileID: 478954}
   m_Father: {fileID: 421922}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -49.48967, y: -18.9825, z: -95.33551}
 --- !u!1 &186998
 GameObject:
   m_ObjectHideFlags: 0
