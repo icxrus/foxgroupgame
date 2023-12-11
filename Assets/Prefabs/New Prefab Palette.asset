@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShortKey: 0
   Groups:
-  - GroupName: Tree
+  - GroupName: Environment
     Items:
     - Name: OptimizedCherryTreeV2
       GameObjectVariants:
@@ -80,7 +80,7 @@ MonoBehaviour:
         Mode: 1
       Scale:
         Mode: 3
-        MinScale: {x: 1, y: 1, z: 1}
+        MinScale: {x: 0.2, y: 0.2, z: 0.2}
         MaxScale: {x: 1, y: 1, z: 1}
         UnitformScaling: 1
       AdvancedOptions:
@@ -148,6 +148,33 @@ MonoBehaviour:
         RotationOffset: {x: 0, y: 0, z: 0}
         NameType: 0
       IsAdvancesOptionsOpenInEditor: 1
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: PineTreeLOD
+      GameObjectVariants:
+      - {fileID: 2857635200192096141, guid: cafcc9328d5764849879d08a0ebacbb1, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 0.5, z: 1}
+        MaxScale: {x: 1, y: 2, z: 1}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
       IsVariantsOpen: 0
       VariantsScroll: {x: 0, y: 0}
       IsOpenInEditor: 1
