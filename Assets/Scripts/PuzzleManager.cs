@@ -18,9 +18,13 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private GameObject keyPrefab;
     [SerializeField] private List<Transform> leftKeyLocations = new();
     [SerializeField] private List<Transform> rightKeyLocations = new();
+    private List<Transform> tmpLoc = new();
+
     private Transform keyLocation;
+
     void Awake()
     {
+        tmpLoc = possibleLocations;
         //Find all the possible puzzle locations
         GameObject[] tmp = GameObject.FindGameObjectsWithTag("RandomLocation");
 
@@ -67,6 +71,7 @@ public class PuzzleManager : MonoBehaviour
 
         //instantiate Parkour Puzzle
         Instantiate(PuzzleParkourPrefab, chosenLocations[2]);
+        chosenLocations[2].localEulerAngles = new Vector3(0, 0, 0);
 
         Debug.Log("Spawned puzzles at their randomized locations.");
     }
@@ -97,5 +102,23 @@ public class PuzzleManager : MonoBehaviour
     public Transform[] ReturnPuzzleLocations()
     {
         return chosenLocations;
+    }
+
+    private void Update()
+    {
+        //Editor Specific Debugging
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            for (int i = 0; i < chosenLocations.Length; i++)
+            {
+                int index = Random.Range(0, tmpLoc.Count);
+                chosenLocations[i] = tmpLoc[index];
+                tmpLoc.RemoveAt(index); //Make sure there are no duplicate locations
+            }
+
+            InstantiatePuzzles();
+        }
+#endif
     }
 }

@@ -19,11 +19,14 @@ public class CubCollect : MonoBehaviour
     }
     private void Update()
     {
+        //Editor Specific Debugging
+#if UNITY_EDITOR
         //debug to spawn in a cub follower
         if (Input.GetKeyDown(KeyCode.P))
         {
             CubTriggered();
         }
+#endif
     }
     private void OnTriggerEnter(Collider other)
     {
