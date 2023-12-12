@@ -313,6 +313,141 @@ MonoBehaviour:
       IsVariantsOpen: 0
       VariantsScroll: {x: 0, y: 0}
       IsOpenInEditor: 1
+    - Name: SM_Rocks_01
+      GameObjectVariants:
+      - {fileID: 8933749797280981253, guid: 46e654c102087004988f6462e5ae7133, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 15, y: 15, z: 15}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: SM_Rocks_02
+      GameObjectVariants:
+      - {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 15, y: 15, z: 15}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: SM_Rocks_03
+      GameObjectVariants:
+      - {fileID: 2290846898853941114, guid: b0abe2cf3d0874541a042aeb54738371, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 15, y: 15, z: 15}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: SM_Rocks_04
+      GameObjectVariants:
+      - {fileID: 2684695994064820914, guid: 86509780b07285a44a69b1eb089a3ed1, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 25, y: 25, z: 25}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: SM_Rocks_05
+      GameObjectVariants:
+      - {fileID: 7809331290410404023, guid: 0dd050efb10a21c4f8d1c3ab7e33f70b, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 15, y: 15, z: 15}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
     NewGroupItem:
       Name: 
       GameObjectVariants:
