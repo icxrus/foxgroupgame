@@ -29,7 +29,7 @@ public class CubTimer : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("allCubs is" + allCubs.Count);
+        //Debug.Log("allCubs is " + allCubs.Count);
         if (currentTime > 0)
         {
             currentTime -= Time.deltaTime;

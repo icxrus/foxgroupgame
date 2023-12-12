@@ -70,60 +70,6 @@ MonoBehaviour:
       IsVariantsOpen: 0
       VariantsScroll: {x: 0, y: 0}
       IsOpenInEditor: 1
-    - Name: Rock
-      GameObjectVariants:
-      - {fileID: 117232, guid: d2f192c371f0f7f408ef6d3471aa68ca, type: 3}
-      Rotation:
-        Constant: {x: 0, y: 0, z: 0}
-        Min: {x: 0, y: 0, z: 0}
-        Max: {x: 0, y: 360, z: 0}
-        Mode: 1
-      Scale:
-        Mode: 3
-        MinScale: {x: 0.2, y: 0.2, z: 0.2}
-        MaxScale: {x: 1, y: 1, z: 1}
-        UnitformScaling: 1
-      AdvancedOptions:
-        AllowPlacementCollisions: 0
-        MultiplyPrefabScale: 1
-        UsePrefabRotation: 0
-        UsePrefabHeight: 1
-        UseIndividualGroundHeight: 1
-        AllowCollision: 0
-        SpacingFactor: 1
-        RotationOffset: {x: 0, y: 0, z: 0}
-        NameType: 0
-      IsAdvancesOptionsOpenInEditor: 0
-      IsVariantsOpen: 0
-      VariantsScroll: {x: 0, y: 0}
-      IsOpenInEditor: 1
-    - Name: baum ld2 mobile
-      GameObjectVariants:
-      - {fileID: 100000, guid: 78fdf95c4c2d7384a8957ee310d2b067, type: 3}
-      Rotation:
-        Constant: {x: 0, y: 0, z: 0}
-        Min: {x: 0, y: 0, z: 0}
-        Max: {x: 0, y: 360, z: 0}
-        Mode: 1
-      Scale:
-        Mode: 3
-        MinScale: {x: 1, y: 1, z: 1}
-        MaxScale: {x: 1, y: 1, z: 1}
-        UnitformScaling: 1
-      AdvancedOptions:
-        AllowPlacementCollisions: 0
-        MultiplyPrefabScale: 1
-        UsePrefabRotation: 0
-        UsePrefabHeight: 1
-        UseIndividualGroundHeight: 1
-        AllowCollision: 0
-        SpacingFactor: 1
-        RotationOffset: {x: 0, y: 0, z: 0}
-        NameType: 0
-      IsAdvancesOptionsOpenInEditor: 0
-      IsVariantsOpen: 0
-      VariantsScroll: {x: 0, y: 0}
-      IsOpenInEditor: 1
     - Name: PuzzleLocation
       GameObjectVariants:
       - {fileID: 9093689156443826472, guid: cb5fad43c4e79c54f98fac4769485efb, type: 3}
@@ -147,7 +93,169 @@ MonoBehaviour:
         SpacingFactor: 1
         RotationOffset: {x: 0, y: 0, z: 0}
         NameType: 0
-      IsAdvancesOptionsOpenInEditor: 1
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: SM_Rocks_01_darkForest
+      GameObjectVariants:
+      - {fileID: 8933749797280981253, guid: 8fcc49c2e917114419fb1d3130a59eaf, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 25, y: 25, z: 25}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: SM_Rocks_02_DarkForest
+      GameObjectVariants:
+      - {fileID: 6173341499977504312, guid: 637106d8fd22152438dd36e8892682fe, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 25, y: 25, z: 25}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: SM_Rocks_03_DarkForest
+      GameObjectVariants:
+      - {fileID: 2290846898853941114, guid: 5734c832ddaf99d429f1a070a69d2be6, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 25, y: 25, z: 25}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: SM_Rocks_04_DarkForest
+      GameObjectVariants:
+      - {fileID: 2684695994064820914, guid: af063bcc189866e4587fa444b103f56e, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 25, y: 25, z: 25}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: SM_Rocks_05_DarkForest
+      GameObjectVariants:
+      - {fileID: 7809331290410404023, guid: bfe8c00efb164b34d8fb686f68c18900, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 25, y: 25, z: 25}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: KeyLocationRight
+      GameObjectVariants:
+      - {fileID: 455437695237746106, guid: bf4169f32f1981b4090f87bb33e421c7, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 0, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 1, y: 1, z: 1}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
       IsVariantsOpen: 0
       VariantsScroll: {x: 0, y: 0}
       IsOpenInEditor: 1
@@ -163,6 +271,33 @@ MonoBehaviour:
         Mode: 3
         MinScale: {x: 1, y: 0.5, z: 1}
         MaxScale: {x: 1, y: 2, z: 1}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: KeyLocationLeft
+      GameObjectVariants:
+      - {fileID: 455437695237746106, guid: 7d54121c93053cc4498ba85087725d1f, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 0, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 1, y: 1, z: 1}
         UnitformScaling: 1
       AdvancedOptions:
         AllowPlacementCollisions: 0
