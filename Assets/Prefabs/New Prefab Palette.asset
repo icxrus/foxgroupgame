@@ -448,6 +448,87 @@ MonoBehaviour:
       IsVariantsOpen: 0
       VariantsScroll: {x: 0, y: 0}
       IsOpenInEditor: 1
+    - Name: Log house
+      GameObjectVariants:
+      - {fileID: 3766039996492869431, guid: bc2415025c3d4d14fb01715c1c05c4eb, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 1, y: 1, z: 1}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: Stone house
+      GameObjectVariants:
+      - {fileID: 3241280523386084058, guid: e53ec273ec7799f419c876b06f3ecc53, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 1, y: 1, z: 1}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
+    - Name: Timber house
+      GameObjectVariants:
+      - {fileID: 2223321207454042356, guid: 7ce1aa2cae095474db4993ae833404b1, type: 3}
+      Rotation:
+        Constant: {x: 0, y: 0, z: 0}
+        Min: {x: 0, y: 0, z: 0}
+        Max: {x: 0, y: 360, z: 0}
+        Mode: 1
+      Scale:
+        Mode: 3
+        MinScale: {x: 1, y: 1, z: 1}
+        MaxScale: {x: 1, y: 1, z: 1}
+        UnitformScaling: 1
+      AdvancedOptions:
+        AllowPlacementCollisions: 0
+        MultiplyPrefabScale: 1
+        UsePrefabRotation: 0
+        UsePrefabHeight: 1
+        UseIndividualGroundHeight: 1
+        AllowCollision: 0
+        SpacingFactor: 1
+        RotationOffset: {x: 0, y: 0, z: 0}
+        NameType: 0
+      IsAdvancesOptionsOpenInEditor: 0
+      IsVariantsOpen: 0
+      VariantsScroll: {x: 0, y: 0}
+      IsOpenInEditor: 1
     NewGroupItem:
       Name: 
       GameObjectVariants:
