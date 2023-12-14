@@ -280,7 +280,7 @@ namespace GreatArcStudios
         /// </summary>
         public void Start()
         {
-           
+            //Time.timeScale = timeScale;
             readUseSimpleTerrain = useSimpleTerrain;
             if (useSimpleTerrain)
             {
