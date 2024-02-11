@@ -4,30 +4,51 @@ using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour
 {
-    [Header("Add at least 3+ object transforms to this list to run the randomizer.")]
-    [SerializeField] private GameObject cubPrefab;
-    public List<Transform> possibleLocations = new();
-    [Tooltip("0 = 2D, 1 = Hidden, 2 = Parkour")]
-    public Transform[] chosenLocations = new Transform[3];
-    [SerializeField] private GameObject Puzzle2DPrefab;
-    [SerializeField] private GameObject PuzzleHiddenPrefab;
-    [SerializeField] private GameObject PuzzleParkourPrefab;
-
-    //hidden puzzle variables
+    [Header("Add all puzzles to this, they key is for HiddenPuzzle.")]
+    [SerializeField] private List<GameObject> puzzlePrefabs = new();
     [SerializeField] private GameObject keyPrefab;
-    [SerializeField] private List<Transform> leftKeyLocations = new();
-    [SerializeField] private List<Transform> rightKeyLocations = new();
-    private List<Transform> tmpLoc = new();
 
     private Transform keyLocation;
+    private List<Transform> leftKeyLocations = new();
+    private List<Transform> rightKeyLocations = new();
+    private List<Transform> possibleLocations = new();
+    private List<PuzzleData> puzzleData = new List<PuzzleData>();
+    public class PuzzleData
+    {
+        public string tagName;
+        public Transform puzzleSpawn;
+
+        public PuzzleData(string puzzleTag, Transform puzzleSpawnLocation)
+        {
+            tagName = puzzleTag;
+            puzzleSpawn = puzzleSpawnLocation;
+        }
+    }
 
     void Awake()
     {
+        FindLocations();
         SetupLocations();
     }
-    void SetupLocations()
+
+    public void CreatePuzzleData(string tagName, Transform spawnLocation)
     {
-        tmpLoc = possibleLocations;
+        PuzzleData pD = new PuzzleData(tagName, spawnLocation);
+        puzzleData.Add(pD);
+    }
+    public void RemovePuzzleData(string tagName)
+    {
+        for (int i = 0; i < puzzleData.Count; i++)
+        {
+            if (puzzleData[i].tagName == tagName)
+            {
+                puzzleData.RemoveAt(i);
+                break;
+            }
+        }
+    }
+    void FindLocations()
+    {
         //Find all the possible puzzle locations
         GameObject[] tmp = GameObject.FindGameObjectsWithTag("RandomLocation");
 
@@ -49,78 +70,41 @@ public class PuzzleManager : MonoBehaviour
         {
             rightKeyLocations.Add(item.transform);
         }
-
-        //Location randomizer at start of game
-        for (int i = 0; i < chosenLocations.Length; i++)
-        {
-            int index = Random.Range(0, possibleLocations.Count);
-            chosenLocations[i] = possibleLocations[index];
-            possibleLocations.RemoveAt(index); //Make sure there are no duplicate locations
-        }
-
-        //say which ones were chosen
-        Debug.Log($"Chosen locations are: 1. 2D - { chosenLocations[0].position }, 2. Hidden - { chosenLocations[1].position }, 3. Parkour - { chosenLocations[2].position }");
-
-        InstantiatePuzzles();
     }
-    //Instantiates all the puzzles at their correct locations.
-    private void InstantiatePuzzles()
+    void SetupLocations()
     {
-        //Instantiate 2D Puzzle
-        Instantiate(Puzzle2DPrefab, chosenLocations[0]);
-
-        //instantiate Hidden Puzzle
-        Instantiate(PuzzleHiddenPrefab, chosenLocations[1]);
+        //instantiate one puzzle prefab per location
+        for (int i = 0; i < puzzlePrefabs.Count && i < possibleLocations.Count; i++)
+        {
+            int randomIndex = Random.Range(0, possibleLocations.Count);
+            GameObject puzzlePrefab = puzzlePrefabs[i];
+            Instantiate(puzzlePrefab, possibleLocations[randomIndex]);
+            CreatePuzzleData(puzzlePrefab.tag, possibleLocations[randomIndex]);
+            possibleLocations.RemoveAt(randomIndex); //remove used location
+        }
         SetupHidden();
-
-        //instantiate Parkour Puzzle
-        Instantiate(PuzzleParkourPrefab, chosenLocations[2]);
-        chosenLocations[2].localEulerAngles = new Vector3(0, 0, 0);
-
-        Debug.Log("Spawned puzzles at their randomized locations.");
     }
     void SetupHidden()
     {
-        if (chosenLocations[1].tag == "Left")
+        for (int i = 0; i < puzzleData.Count; i++)
         {
-            //if on left, spawn it on the right
-            int index = Random.Range(0, rightKeyLocations.Count);
-            keyLocation = rightKeyLocations[index];
-        }
-        else
-        {
-            //else it must be on the right, spawn it on the left
-            int index = Random.Range(0, leftKeyLocations.Count);
-            keyLocation = leftKeyLocations[index];
-        }
-
-        Instantiate(keyPrefab, keyLocation);
-
-        //say which one was chosen
-        Debug.Log($"Key location is: {keyLocation}");
-    }
-    /// <summary>
-    /// Returns the randomized puzzle locations.
-    /// </summary>
-    /// <returns></returns>
-    public Transform[] ReturnPuzzleLocations()
-    {
-        return chosenLocations;
-    }
-    private void Update()
-    {
-        //Editor Specific Debugging
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            for (int i = 0; i < chosenLocations.Length; i++)
+            if (puzzleData[i].tagName == "HiddenPuzzle")
             {
-                int index = Random.Range(0, tmpLoc.Count);
-                chosenLocations[i] = tmpLoc[index];
-                tmpLoc.RemoveAt(index); //Make sure there are no duplicate locations
+                if (possibleLocations[i].tag == "Left")
+                {
+                    //if on left, spawn it on the right
+                    int index = Random.Range(0, rightKeyLocations.Count);
+                    keyLocation = rightKeyLocations[index];
+                }
+                else
+                {
+                    //else it must be on the right, spawn it on the left
+                    int index = Random.Range(0, leftKeyLocations.Count);
+                    keyLocation = leftKeyLocations[index];
+                }
+                break;
             }
-            InstantiatePuzzles();
         }
-#endif
+        Instantiate(keyPrefab, keyLocation);
     }
 }

@@ -34,7 +34,7 @@ public class OldCubDataHolder : MonoBehaviour
     private void Start()
     {
         puzzleManager = gameObject.GetComponent<PuzzleManager>();
-        puzzleLocations = puzzleManager.ReturnPuzzleLocations();
+        //puzzleLocations = puzzleManager.ReturnPuzzleLocations();
 
         InitializeCubsAtPuzzles();
     }
