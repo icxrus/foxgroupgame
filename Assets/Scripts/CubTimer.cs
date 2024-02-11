@@ -6,28 +6,19 @@ public class CubTimer : MonoBehaviour
 {
     [SerializeField] private float timerDuration = 900.0f; // 15 mins in secs
     [SerializeField] private float currentTime;
-    [SerializeField] private GameObject deadCubPrefab;
-    private CubDataHolder cubData;
-    private List<GameObject> allCubs = new List<GameObject>();
-    private bool runOnce = false;
 
+    private CubDataHolder cubData;
+    private bool runOnce = false;
     void Start()
     {
         currentTime = timerDuration;
         cubData = GetComponent<CubDataHolder>();
-        Invoke("GetCubs", 0.5f);
     }
-    void GetCubs()
-    {
-        GameObject[] taggedCubs = GameObject.FindGameObjectsWithTag("Cub");
-
-        foreach (GameObject cub in taggedCubs)
-        {
-            allCubs.Add(cub);
-        }
-    }
-
     void Update()
+    {
+        RunTimer();
+    }
+    void RunTimer()
     {
         //Debug.Log("allCubs is " + allCubs.Count);
         if (currentTime > 0)
@@ -39,26 +30,25 @@ public class CubTimer : MonoBehaviour
             // timer reached 0
             runOnce = true;
             currentTime = timerDuration;
-            KillCub();
+            KillRandomCub();
             Debug.Log("Cub dies now");
         }
     }
-    void KillCub()
-    {
-        Debug.Log("KillCub ran");
-        int cubToKill = Random.Range(0, allCubs.Count);
 
-        if (allCubs[cubToKill].gameObject != null)
+    void KillRandomCub()
+    {
+        Debug.Log("KillRandomCub ran");
+        int cubToKill = Random.Range(0, cubData.allCubs.Count);
+
+        if (cubData.allCubs[cubToKill].gameObject != null)
         {
-            cubData.isCubDead[cubToKill] = true;
-            Instantiate(deadCubPrefab, allCubs[cubToKill].transform.position, Quaternion.identity);
-            Destroy(allCubs[cubToKill]);
+            cubData.MarkCubDead(cubToKill);
             runOnce = false;
         }
         else
         {
             //if something fucked up and it gave a null object, try again
-            KillCub();
+            KillRandomCub();
         }
     }
 }

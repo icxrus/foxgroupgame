@@ -10,50 +10,43 @@ public class CubFollow : MonoBehaviour
     [SerializeField] private float followSpeed = 5f;
     [SerializeField] private float distanceBehind = 1.0f;
     [SerializeField] private float cubElevation = 0.25f;
-
     void Update()
     {
-        if (cubAmount.Count > 0)
+        if (cubAmount.Count == 1)
         {
-            FollowPlayer();
-
-            if (cubAmount.Count > 1)
-            {
-                FollowCub();
-            }
+            CubFollowPlayer();
+        }
+        else if (cubAmount.Count > 1)
+        {
+            CubFollowCub();
         }
     }
-    public void AddCub()
+    public void AddFollowerCub()
     {
         Transform newCub = Instantiate(cubPrefab, player.position, Quaternion.identity).transform;
         cubAmount.Add(newCub);
     }
 
-    void FollowPlayer()
+    void CubFollowPlayer()
     {
         //cub 0 follows player
-        //Vector3 targetPosition = player.position - player.forward * distanceBehind;
         Vector3 targetPosition = new Vector3(player.position.x, player.position.y + cubElevation, player.position.z) - player.forward * distanceBehind;
         Vector3 lookAtPosition = new Vector3(player.position.x, cubAmount[0].transform.position.y, player.position.z);
 
         cubAmount[0].transform.position = Vector3.Lerp(cubAmount[0].transform.position, targetPosition, followSpeed * Time.deltaTime);
         cubAmount[0].transform.LookAt(lookAtPosition);
     }
-    void FollowCub()
+    void CubFollowCub()
     {
         //cub 1 to max follow cub before them
-
         for (int i = 0; i < cubAmount.Count - 1; i++)
         {
             Debug.Log("printing i = " + i) ;
 
             Transform cubToFollow = cubAmount[i];
-
             Transform cubFollowing = cubAmount[i + 1];
 
-
             Vector3 targetPosition = cubToFollow.position - cubToFollow.forward * distanceBehind;
-            //Vector3 targetPosition = new Vector3(cubToFollow.position.x, cubToFollow.position.y + 1, cubToFollow.position.z) - cubToFollow.forward * distanceBehind;
             Vector3 lookAtPosition = new Vector3(cubToFollow.position.x, cubFollowing.transform.position.y, cubToFollow.position.z);
 
             cubFollowing.transform.position = Vector3.Lerp(cubFollowing.transform.position, targetPosition, followSpeed * Time.deltaTime);

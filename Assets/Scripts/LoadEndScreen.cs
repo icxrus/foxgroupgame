@@ -11,6 +11,10 @@ public class LoadEndScreen : MonoBehaviour
     [SerializeField] private string[] completionTexts;
     void Start()
     {
+        CheckCubsSaved();
+    }
+    void CheckCubsSaved()
+    {
         int cubCount = PlayerPrefs.GetInt("cubsSaved");
 
         if (cubCount == 0)

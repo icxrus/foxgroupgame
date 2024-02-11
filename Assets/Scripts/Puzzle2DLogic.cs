@@ -151,7 +151,7 @@ public class Puzzle2DLogic : MonoBehaviour
     {
         Debug.Log("Entered wrong way.");
 
-        cubData.CubDeath(0);
+        cubData.MarkCubDead(0);
 
         fakeCanvas.SetActive(false);
         puzzle2DCompleted = true;

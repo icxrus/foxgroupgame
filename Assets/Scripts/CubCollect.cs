@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class CubCollect : MonoBehaviour
 {
+    public delegate void CubCollection();
+    public event CubCollection OnCubCollected;
+
     private CubFollow player;
     private CubDataHolder cubData;
     private float fogDensity;
-    public delegate void CubCollected();
-    public event CubCollected OnCubCollected;
-
     private void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<CubFollow>();
         cubData = GameObject.FindWithTag("PuzzleManager").GetComponent<CubDataHolder>();
-        OnCubCollected += player.AddCub;
-        OnCubCollected += cubData.CubSaved;
+        OnCubCollected += player.AddFollowerCub;
+        OnCubCollected += cubData.IncreaseCubsSaved;
     }
     private void Update()
     {
@@ -24,7 +24,7 @@ public class CubCollect : MonoBehaviour
         //debug to spawn in a cub follower
         if (Input.GetKeyDown(KeyCode.P))
         {
-            CubTriggered();
+            CubCollected();
         }
 #endif
     }
@@ -32,12 +32,11 @@ public class CubCollect : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            CubTriggered();
-            //gameObject.GetComponent<BoxCollider>().enabled = false;
+            CubCollected();
             Destroy(this.gameObject);
         }
     }
-    public void CubTriggered()
+    public void CubCollected()
     {
         fogDensity = RenderSettings.fogDensity;
 

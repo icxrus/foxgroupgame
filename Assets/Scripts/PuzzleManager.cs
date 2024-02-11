@@ -9,7 +9,6 @@ public class PuzzleManager : MonoBehaviour
     public List<Transform> possibleLocations = new();
     [Tooltip("0 = 2D, 1 = Hidden, 2 = Parkour")]
     public Transform[] chosenLocations = new Transform[3];
-    public List<GameObject> cubLocationAtPuzzle = new List<GameObject>();
     [SerializeField] private GameObject Puzzle2DPrefab;
     [SerializeField] private GameObject PuzzleHiddenPrefab;
     [SerializeField] private GameObject PuzzleParkourPrefab;
@@ -24,6 +23,10 @@ public class PuzzleManager : MonoBehaviour
 
     void Awake()
     {
+        SetupLocations();
+    }
+    void SetupLocations()
+    {
         tmpLoc = possibleLocations;
         //Find all the possible puzzle locations
         GameObject[] tmp = GameObject.FindGameObjectsWithTag("RandomLocation");
@@ -37,7 +40,7 @@ public class PuzzleManager : MonoBehaviour
 
         foreach (GameObject item in tmp2)
         {
-           leftKeyLocations.Add(item.transform);
+            leftKeyLocations.Add(item.transform);
         }
 
         GameObject[] tmp3 = GameObject.FindGameObjectsWithTag("RightKey");
@@ -54,11 +57,12 @@ public class PuzzleManager : MonoBehaviour
             chosenLocations[i] = possibleLocations[index];
             possibleLocations.RemoveAt(index); //Make sure there are no duplicate locations
         }
+
         //say which ones were chosen
         Debug.Log($"Chosen locations are: 1. 2D - { chosenLocations[0].position }, 2. Hidden - { chosenLocations[1].position }, 3. Parkour - { chosenLocations[2].position }");
+
         InstantiatePuzzles();
     }
-
     //Instantiates all the puzzles at their correct locations.
     private void InstantiatePuzzles()
     {
@@ -103,7 +107,6 @@ public class PuzzleManager : MonoBehaviour
     {
         return chosenLocations;
     }
-
     private void Update()
     {
         //Editor Specific Debugging
@@ -116,7 +119,6 @@ public class PuzzleManager : MonoBehaviour
                 chosenLocations[i] = tmpLoc[index];
                 tmpLoc.RemoveAt(index); //Make sure there are no duplicate locations
             }
-
             InstantiatePuzzles();
         }
 #endif

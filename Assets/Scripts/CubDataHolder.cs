@@ -7,19 +7,31 @@ public class CubDataHolder : MonoBehaviour
 {
     public GameObject cubPrefab;
     public GameObject deadCubPrefab;
-    public GameObject[] cubLocations = new GameObject[3];
+    public GameObject[] cubSpawnLocations = new GameObject[3];
     public bool[] isCubDead = new bool[3];
     public int cubsSaved;
+
+    public List<GameObject> allCubs = new List<GameObject>();
     private void Start()
     {
-        cubLocations = GameObject.FindGameObjectsWithTag("CubSpawnLoc");
+        cubSpawnLocations = GameObject.FindGameObjectsWithTag("CubSpawnLoc");
         Invoke("SpawnCubs", 0.25f);
+        Invoke("GetCubObjects", 0.5f);
     }
     void SpawnCubs()
     {
-        for (int i = 0; i < cubLocations.Length; i++)
+        for (int i = 0; i < cubSpawnLocations.Length; i++)
         {
-            Instantiate(cubPrefab, cubLocations[i].transform);
+            Instantiate(cubPrefab, cubSpawnLocations[i].transform);
+        }
+    }
+    void GetCubObjects()
+    {
+        GameObject[] taggedCubs = GameObject.FindGameObjectsWithTag("Cub");
+
+        foreach (GameObject cub in taggedCubs)
+        {
+            allCubs.Add(cub);
         }
     }
     /// <summary>
@@ -27,13 +39,13 @@ public class CubDataHolder : MonoBehaviour
     /// </summary>
     /// <param name="index">0 for puzzle 1 cub, 1 for puzzle 2 cub and 2 for puzzle 3 cub</param>
     /// 
-    public void CubDeath(int index)
+    public void MarkCubDead(int index)
     {
         isCubDead[index] = true;
-        Instantiate(deadCubPrefab, cubLocations[index].transform.position, Quaternion.identity);
-        Destroy(cubLocations[index]);
+        Instantiate(deadCubPrefab, cubSpawnLocations[index].transform.position, Quaternion.identity);
+        Destroy(cubSpawnLocations[index]);
     }
-    public void CubSaved()
+    public void IncreaseCubsSaved()
     {
         cubsSaved++;
     }

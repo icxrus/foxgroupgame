@@ -12,15 +12,15 @@ public class GetCubLocation : MonoBehaviour
         Transform here = this.gameObject.transform.parent;
         if (here.CompareTag("2DPuzzle"))
         {
-            cubData.cubLocations[0] = this.gameObject;
+            cubData.cubSpawnLocations[0] = this.gameObject;
         }
         else if (here.CompareTag("HiddenPuzzle"))
         {
-            cubData.cubLocations[1] = this.gameObject;
+            cubData.cubSpawnLocations[1] = this.gameObject;
         }
         else if (here.CompareTag("ParkourPuzzle"))
         {
-            cubData.cubLocations[2] = this.gameObject;
+            cubData.cubSpawnLocations[2] = this.gameObject;
         }
     }
 }
