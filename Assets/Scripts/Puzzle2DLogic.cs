@@ -43,6 +43,11 @@ public class Puzzle2DLogic : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    public int FetchIndexFromButtonsAndReturnIt(int index)
+    {
+        return index;
+    }
+
     public void AdjustFirstClue(int i)
     {
         if (!firstClueFound[i])
