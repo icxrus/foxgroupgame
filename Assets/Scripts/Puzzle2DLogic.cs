@@ -25,7 +25,7 @@ public class Puzzle2DLogic : MonoBehaviour
     [SerializeField] private bool clue3Status;
 
     public CubCollect cubCollect;
-    public CubDataHolder cubData;
+    public CubDataHolder cubDataHolder;
 
     public bool puzzle2DCompleted = false;
     public bool inView = false;
@@ -37,7 +37,7 @@ public class Puzzle2DLogic : MonoBehaviour
 
     private void Awake()
     {
-        cubData = gameObject.GetComponent<CubDataHolder>();
+        cubDataHolder = gameObject.GetComponent<CubDataHolder>();
 
         nextRoom = GameObject.FindGameObjectWithTag("TP2D_NextRoom").transform;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -156,7 +156,15 @@ public class Puzzle2DLogic : MonoBehaviour
     {
         Debug.Log("Entered wrong way.");
 
-        cubData.MarkCubDead(0);
+        //mark cub dead
+        for (int i = 0; i < cubDataHolder.cubData.Count; i++)
+        {
+            if (cubDataHolder.cubData[i].tagName == "2DPuzzle")
+            {
+                cubDataHolder.MarkCubDead(cubDataHolder.cubData[i]);
+                break;
+            }
+        }
 
         fakeCanvas.SetActive(false);
         puzzle2DCompleted = true;

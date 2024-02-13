@@ -1,49 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(PuzzleManager))]
 public class CubDataHolder : MonoBehaviour
 {
     public GameObject cubPrefab;
     public GameObject deadCubPrefab;
-    public GameObject[] cubSpawnLocations = new GameObject[3];
-    public bool[] isCubDead = new bool[3];
+    public List<GameObject> cubSpawnLocations = new List<GameObject>();
     public int cubsSaved;
 
-    public List<GameObject> allCubs = new List<GameObject>();
+    public List<CubData> cubData = new List<CubData>();
+    public class CubData
+    {
+        public string tagName;
+        public Transform puzzleSpawn;
+        public Transform cubAtPuzzle;
+        public bool isCubDead;
+
+        public CubData(string puzzleTag, Transform puzzleSpawnLocation)
+        {
+            tagName = puzzleTag;
+            puzzleSpawn = puzzleSpawnLocation;
+            cubAtPuzzle = null;
+            isCubDead = false;
+        }
+    }
+    public void CreateCubData(string tagName, Transform spawnLocation)
+    {
+        CubData pD = new CubData(tagName, spawnLocation);
+        cubData.Add(pD);
+    }
+    public void RemoveCubData(string tagName)
+    {
+        for (int i = 0; i < cubData.Count; i++)
+        {
+            if (cubData[i].tagName == tagName)
+            {
+                cubData.RemoveAt(i);
+                break;
+            }
+        }
+    }
     private void Start()
     {
-        cubSpawnLocations = GameObject.FindGameObjectsWithTag("CubSpawnLoc");
+        cubSpawnLocations = GameObject.FindGameObjectsWithTag("CubSpawnLoc").ToList();
         Invoke("SpawnCubs", 0.25f);
-        Invoke("GetCubObjects", 0.5f);
     }
     void SpawnCubs()
     {
-        for (int i = 0; i < cubSpawnLocations.Length; i++)
+        for (int i = 0; i < cubSpawnLocations.Count; i++)
         {
             Instantiate(cubPrefab, cubSpawnLocations[i].transform);
         }
     }
-    void GetCubObjects()
+    public void MarkCubDead(CubData puzzleData)
     {
-        GameObject[] taggedCubs = GameObject.FindGameObjectsWithTag("Cub");
-
-        foreach (GameObject cub in taggedCubs)
-        {
-            allCubs.Add(cub);
-        }
-    }
-    /// <summary>
-    /// Updates cub life status to dead and removes prefab from puzzle location
-    /// </summary>
-    /// <param name="index">0 for puzzle 1 cub, 1 for puzzle 2 cub and 2 for puzzle 3 cub</param>
-    /// 
-    public void MarkCubDead(int index)
-    {
-        isCubDead[index] = true;
-        Instantiate(deadCubPrefab, cubSpawnLocations[index].transform.position, Quaternion.identity);
-        Destroy(cubSpawnLocations[index]);
+        puzzleData.isCubDead = true;
+        Instantiate(deadCubPrefab, puzzleData.cubAtPuzzle.transform.position, Quaternion.identity);
+        Destroy(puzzleData.cubAtPuzzle.gameObject);
     }
     public void IncreaseCubsSaved()
     {

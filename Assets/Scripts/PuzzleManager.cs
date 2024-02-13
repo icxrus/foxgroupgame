@@ -8,44 +8,18 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private List<GameObject> puzzlePrefabs = new();
     [SerializeField] private GameObject keyPrefab;
 
+    private CubDataHolder cubDataHolder;
     private Transform keyLocation;
     private List<Transform> leftKeyLocations = new();
     private List<Transform> rightKeyLocations = new();
     private List<Transform> possibleLocations = new();
-    private List<PuzzleData> puzzleData = new List<PuzzleData>();
-    public class PuzzleData
-    {
-        public string tagName;
-        public Transform puzzleSpawn;
 
-        public PuzzleData(string puzzleTag, Transform puzzleSpawnLocation)
-        {
-            tagName = puzzleTag;
-            puzzleSpawn = puzzleSpawnLocation;
-        }
-    }
 
     void Awake()
     {
+        cubDataHolder = GetComponent<CubDataHolder>();
         FindLocations();
         SetupLocations();
-    }
-
-    public void CreatePuzzleData(string tagName, Transform spawnLocation)
-    {
-        PuzzleData pD = new PuzzleData(tagName, spawnLocation);
-        puzzleData.Add(pD);
-    }
-    public void RemovePuzzleData(string tagName)
-    {
-        for (int i = 0; i < puzzleData.Count; i++)
-        {
-            if (puzzleData[i].tagName == tagName)
-            {
-                puzzleData.RemoveAt(i);
-                break;
-            }
-        }
     }
     void FindLocations()
     {
@@ -79,16 +53,16 @@ public class PuzzleManager : MonoBehaviour
             int randomIndex = Random.Range(0, possibleLocations.Count);
             GameObject puzzlePrefab = puzzlePrefabs[i];
             Instantiate(puzzlePrefab, possibleLocations[randomIndex]);
-            CreatePuzzleData(puzzlePrefab.tag, possibleLocations[randomIndex]);
+            cubDataHolder.CreateCubData(puzzlePrefab.tag, possibleLocations[randomIndex]);
             possibleLocations.RemoveAt(randomIndex); //remove used location
         }
         SetupHidden();
     }
     void SetupHidden()
     {
-        for (int i = 0; i < puzzleData.Count; i++)
+        for (int i = 0; i < cubDataHolder.cubData.Count; i++)
         {
-            if (puzzleData[i].tagName == "HiddenPuzzle")
+            if (cubDataHolder.cubData[i].tagName == "HiddenPuzzle")
             {
                 if (possibleLocations[i].tag == "Left")
                 {

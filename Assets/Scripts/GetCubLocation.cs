@@ -4,23 +4,36 @@ using UnityEngine;
 
 public class GetCubLocation : MonoBehaviour
 {
-    [SerializeField] private CubDataHolder cubData;
+    [SerializeField] private CubDataHolder cubDataHolder;
     private void Start()
     {
-        cubData = GameObject.FindGameObjectWithTag("PuzzleManager").GetComponent<CubDataHolder>();
+        cubDataHolder = GameObject.FindGameObjectWithTag("PuzzleManager").GetComponent<CubDataHolder>();
 
-        Transform here = this.gameObject.transform.parent;
-        if (here.CompareTag("2DPuzzle"))
+        Invoke("AssignCubToPuzzle", 0.5f);
+    }
+
+    void AssignCubToPuzzle()
+    {
+        foreach (CubDataHolder.CubData cubData in cubDataHolder.cubData)
         {
-            cubData.cubSpawnLocations[0] = this.gameObject;
+            Transform here = this.gameObject.transform.parent;
+            Transform cubChild = this.gameObject.transform.GetChild(0);
+
+            if (here.CompareTag(cubData.tagName))
+            {
+                cubData.cubAtPuzzle = cubChild;
+            }
         }
-        else if (here.CompareTag("HiddenPuzzle"))
+    }
+    private void Update()
+    {
+        //check what data was collected
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            cubData.cubSpawnLocations[1] = this.gameObject;
-        }
-        else if (here.CompareTag("ParkourPuzzle"))
-        {
-            cubData.cubSpawnLocations[2] = this.gameObject;
+            foreach (CubDataHolder.CubData puzzleData in cubDataHolder.cubData)
+            {
+                Debug.Log("TagName: " + puzzleData.tagName + ", PuzzleSpawn at: " + puzzleData.puzzleSpawn.position + " CubAtPuzzle at: " + puzzleData.cubAtPuzzle.position);
+            }
         }
     }
 }

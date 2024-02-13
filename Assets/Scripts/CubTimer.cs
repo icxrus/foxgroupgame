@@ -20,12 +20,11 @@ public class CubTimer : MonoBehaviour
     }
     void RunTimer()
     {
-        //Debug.Log("allCubs is " + allCubs.Count);
         if (currentTime > 0)
         {
             currentTime -= Time.deltaTime;
         }
-        else if (runOnce == false)
+        else if (runOnce == false && cubData.cubData.Count > 0)
         {
             // timer reached 0
             runOnce = true;
@@ -34,21 +33,20 @@ public class CubTimer : MonoBehaviour
             Debug.Log("Cub dies now");
         }
     }
-
     void KillRandomCub()
     {
         Debug.Log("KillRandomCub ran");
-        int cubToKill = Random.Range(0, cubData.allCubs.Count);
+        int cubToKill = Random.Range(0, cubData.cubData.Count);
 
-        if (cubData.allCubs[cubToKill].gameObject != null)
-        {
-            cubData.MarkCubDead(cubToKill);
-            runOnce = false;
-        }
-        else
-        {
-            //if something fucked up and it gave a null object, try again
-            KillRandomCub();
-        }
+            if (cubData.cubData[cubToKill].cubAtPuzzle != null)
+            {
+                cubData.MarkCubDead(cubData.cubData[cubToKill]);
+                runOnce = false;
+            }
+            else
+            {
+                //if something fucked up and it gave a null object, try again
+                KillRandomCub();
+            }
     }
 }
