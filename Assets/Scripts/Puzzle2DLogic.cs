@@ -10,12 +10,12 @@ public class Puzzle2DLogic : MonoBehaviour
     [SerializeField] private bool[] secondClueFound = new bool[3];
     [SerializeField] private bool[] fakeClueFound = new bool[2];
 
-    public GameObject canvas;
-    public GameObject fakeCanvas;
+    public GameObject canvas2DUI;
+    public GameObject fakeCanvas2DUI;
 
-    public Image furPile;
-    public Image footSteps;
-    public Image fakeFurPile;
+    public Image furPileImage;
+    public Image footStepsImage;
+    public Image fakeFurPileImage;
 
     public TMP_Text supportText;
     public TMP_Text supportFakeText;
@@ -27,11 +27,11 @@ public class Puzzle2DLogic : MonoBehaviour
     public CubCollect cubCollect;
     public CubDataHolder cubDataHolder;
 
-    public bool puzzle2DCompleted = false;
-    public bool inView = false;
+    public bool isPuzzle2DCompleted = false;
+    public bool isInsideUIView = false;
 
-    private Transform nextRoom;
-    private Transform tpOut;
+    private Transform nextRoomTPLocation;
+    private readonly Transform tpOutLocation;
 
     private GameObject player;
 
@@ -39,7 +39,7 @@ public class Puzzle2DLogic : MonoBehaviour
     {
         cubDataHolder = gameObject.GetComponent<CubDataHolder>();
 
-        nextRoom = GameObject.FindGameObjectWithTag("TP2D_NextRoom").transform;
+        nextRoomTPLocation = GameObject.FindGameObjectWithTag("TP2D_NextRoom").transform;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -62,7 +62,7 @@ public class Puzzle2DLogic : MonoBehaviour
         if (clue1Status)
         {
             supportText.enabled = false;
-            furPile.enabled = true;
+            furPileImage.enabled = true;
             Debug.Log("Clue 1 visible.");
         }
     }
@@ -81,7 +81,7 @@ public class Puzzle2DLogic : MonoBehaviour
         if (clue2Status)
         {
             supportText.enabled = false;
-            footSteps.enabled = true;
+            footStepsImage.enabled = true;
             Debug.Log("Clue 2 visible.");
         }
     }
@@ -100,23 +100,23 @@ public class Puzzle2DLogic : MonoBehaviour
         if (clue3Status)
         {
             supportFakeText.enabled = false;
-            fakeFurPile.enabled = true;
+            fakeFurPileImage.enabled = true;
             Debug.Log("Clue 3 visible.");
         }
     }
 
-    public bool CheckIfClueIsFound(bool[] array)
+    public bool CheckIfClueIsFound(bool[] clueStatusArray)
     {
-        bool completed = true;
-        foreach (bool checks in array)
+        bool isClueCompleted = true;
+        foreach (bool isFound in clueStatusArray)
         {
-            if (!checks)
+            if (!isFound)
             {
-                completed = false;
+                isClueCompleted = false;
             }
         }
 
-        if (completed)
+        if (isClueCompleted)
         {
             return true;
         }
@@ -124,39 +124,47 @@ public class Puzzle2DLogic : MonoBehaviour
             return false;
     }
 
-    public void ExitView()
-    {
-        canvas.SetActive(false);
-        player.SetActive(true);
-        inView = false;
-        Cursor.visible = true;
-    }
-    public void ExitFakeView()
-    {
-        fakeCanvas.SetActive(false);
-        player.SetActive(true);
-        inView = false;
-        Cursor.visible = true;
-    }
-
     public void EnterCorrectWay()
     {
         Debug.Log("Entered correct way.");
 
-        canvas.SetActive(false);
-        puzzle2DCompleted = true;
+        canvas2DUI.SetActive(false);
+        isPuzzle2DCompleted = true;
         player.SetActive(true);
-        GoToNext();
 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Locked;
+        GoToNextRoom();
+
+        ReturnCursorStateToPlay();
     }
 
     public void EnterFakeWay()
     {
         Debug.Log("Entered wrong way.");
 
-        //mark cub dead
+        MarkCubDead();
+
+        fakeCanvas2DUI.SetActive(false);
+        isPuzzle2DCompleted = true;
+        player.SetActive(true);
+
+        //Teleport Player out of puzzle
+        CharacterController charControl = player.GetComponent<CharacterController>();
+        charControl.enabled = false;
+        player.transform.position = tpOutLocation.position;
+        charControl.enabled = true;
+
+        ReturnCursorStateToPlay();
+    }
+    void GoToNextRoom()
+    {
+        CharacterController charControl = player.GetComponent<CharacterController>();
+        charControl.enabled = false;
+        player.transform.position = nextRoomTPLocation.position;
+        charControl.enabled = true;
+    }
+
+    private void MarkCubDead()
+    {
         for (int i = 0; i < cubDataHolder.cubData.Count; i++)
         {
             if (cubDataHolder.cubData[i].tagName == "2DPuzzle")
@@ -165,23 +173,11 @@ public class Puzzle2DLogic : MonoBehaviour
                 break;
             }
         }
+    }
 
-        fakeCanvas.SetActive(false);
-        puzzle2DCompleted = true;
-        player.SetActive(true);
-        CharacterController charControl = player.GetComponent<CharacterController>();
-        charControl.enabled = false;
-        player.transform.position = tpOut.position;
-        charControl.enabled = true;
-
+    private void ReturnCursorStateToPlay()
+    {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Locked;
-    }
-    void GoToNext()
-    {
-        CharacterController charControl = player.GetComponent<CharacterController>();
-        charControl.enabled = false;
-        player.transform.position = nextRoom.position;
-        charControl.enabled = true;
     }
 }

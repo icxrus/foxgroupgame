@@ -4,40 +4,33 @@ using UnityEngine;
 
 public class OpenView : MonoBehaviour
 {
-    public GameObject canvas;
-    public GameObject fakeCanvas;
+    public GameObject canvas2DPuzzleUI;
+    public GameObject fakeCanvas2DPuzzleUI;
     private GameObject player;
-    private Puzzle2DLogic logic;
+    private Puzzle2DLogic puzzle2DLogic;
 
     private void Awake()
     {
-        //canvas = GameObject.FindGameObjectWithTag("Canvas2DReal");
-        //fakeCanvas = GameObject.FindGameObjectWithTag("Canvas2DFake");
         player = GameObject.FindGameObjectWithTag("Player");
-        logic = GameObject.FindGameObjectWithTag("PuzzleManager").GetComponent<Puzzle2DLogic>();
+        puzzle2DLogic = GameObject.FindGameObjectWithTag("PuzzleManager").GetComponent<Puzzle2DLogic>();
     }
-    //private void Start()
-    //{
-    //    canvas.SetActive(false);
-    //    fakeCanvas.SetActive(false);
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!logic.inView)
+        if (!puzzle2DLogic.isInsideUIView)
         {
             if (other.CompareTag("Player") && gameObject.CompareTag("CaveExitA"))
             {
-                canvas.SetActive(true);
+                canvas2DPuzzleUI.SetActive(true);
                 player.SetActive(false);
-                logic.inView = true;
+                puzzle2DLogic.isInsideUIView = true;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.None;
             }
             else if (other.CompareTag("Player") && gameObject.CompareTag("CaveExitB"))
             {
-                fakeCanvas.SetActive(true);
-                logic.inView = true;
+                fakeCanvas2DPuzzleUI.SetActive(true);
+                puzzle2DLogic.isInsideUIView = true;
                 player.SetActive(false);
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.None;
