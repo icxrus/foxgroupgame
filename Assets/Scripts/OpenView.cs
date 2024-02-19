@@ -22,19 +22,31 @@ public class OpenView : MonoBehaviour
             if (other.CompareTag("Player") && gameObject.CompareTag("CaveExitA"))
             {
                 canvas2DPuzzleUI.SetActive(true);
-                player.SetActive(false);
-                puzzle2DLogic.isInsideUIView = true;
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.None;
+
+                LockPlayerInUIView();
+
+                CursorStateFreed();
             }
             else if (other.CompareTag("Player") && gameObject.CompareTag("CaveExitB"))
             {
                 fakeCanvas2DPuzzleUI.SetActive(true);
-                puzzle2DLogic.isInsideUIView = true;
-                player.SetActive(false);
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.None;
+
+                LockPlayerInUIView();
+
+                CursorStateFreed();
             }
         }
+    }
+
+    private void CursorStateFreed()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    private void LockPlayerInUIView()
+    {
+        player.SetActive(false);
+        puzzle2DLogic.isInsideUIView = true;
     }
 }

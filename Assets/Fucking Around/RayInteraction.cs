@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class RayInteraction : MonoBehaviour
@@ -9,9 +10,14 @@ public class RayInteraction : MonoBehaviour
     [SerializeField] private bool isFromMouse = true;
 
     private System.Func<Ray> rayProvider;
+
+    private PlayerInput input;
+    private InputAction interactInput;
     void Start()
     {
         LoadInteractionOption();
+        input = GetComponent<PlayerInput>();
+        interactInput = input.actions["Interact"];
     }
     void Update()
     {
@@ -53,7 +59,7 @@ public class RayInteraction : MonoBehaviour
             Component[] interactedObjects = hitData.transform.GetComponents(typeof(IInteractable));
             foreach (IInteractable interactedObject in interactedObjects)
             {
-                if (interactedObject != null && Input.GetKeyDown(KeyCode.E))
+                if (interactedObject != null && interactInput.triggered)
                 {
                     Debug.Log("E pressed!");
                     //use the inherited method from the object, regardless of which script is using that method
