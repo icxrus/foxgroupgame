@@ -5,9 +5,20 @@ using TMPro;
 
 public interface IInteractable
 {
-    void Interact();
-}
-public interface IEventRunner
-{
-    void RunEvent();
+    void UseInteraction()
+    {
+        //default empty
+    }
+    void EnterInteraction()
+    {
+        //default empty
+    }
+    void ExitInteraction()
+    {
+        //default empty
+    }
+    void StayInteraction()
+    {
+        //default empty
+    }
 }

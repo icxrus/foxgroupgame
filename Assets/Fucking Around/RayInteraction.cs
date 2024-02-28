@@ -57,13 +57,13 @@ public class RayInteraction : MonoBehaviour
 
             //get the inherited interfaces from the hit object
             Component[] interactedObjects = hitData.transform.GetComponents(typeof(IInteractable));
-            foreach (IInteractable interactedObject in interactedObjects)
+            foreach (IInteractable interactableScripts in interactedObjects)
             {
-                if (interactedObject != null && interactInput.triggered)
+                if (interactableScripts != null && interactInput.triggered)
                 {
                     Debug.Log("E pressed!");
                     //use the inherited method from the object, regardless of which script is using that method
-                    interactedObject.Interact();
+                    interactableScripts.UseInteraction();
                 }
             }
         }

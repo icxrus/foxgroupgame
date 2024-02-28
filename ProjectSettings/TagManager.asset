@@ -24,6 +24,7 @@ TagManager:
   - ParkourPuzzle
   - TP2D_NextRoom
   - PuzzleManager
+  - Interactable
   layers:
   - Default
   - TransparentFX

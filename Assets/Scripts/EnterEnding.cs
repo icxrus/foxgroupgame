@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnterEnding : MonoBehaviour
+public class EnterEnding : MonoBehaviour, IInteractable
 {
     private GlobalVariables global;
     private CubDataHolder cubData;
@@ -14,21 +14,15 @@ public class EnterEnding : MonoBehaviour
         cubData = GameObject.Find("Puzzle Manager").GetComponent<CubDataHolder>();
         endBox = global.endScreen;
     }
-    private void OnTriggerEnter(Collider other)
+    public void EnterInteraction()
     {
-        if (other.gameObject.tag == "Player")
-        {
-            endBox.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-        }
+        endBox.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
     }
-    private void OnTriggerExit(Collider other)
+    public void ExitInteraction()
     {
-        if (other.gameObject.tag == "Player")
-        {
-            endBox.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        endBox.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void EndGame()
     {

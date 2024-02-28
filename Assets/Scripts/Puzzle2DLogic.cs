@@ -165,13 +165,20 @@ public class Puzzle2DLogic : MonoBehaviour
 
     private void MarkCubDead()
     {
-        for (int i = 0; i < cubDataHolder.cubData.Count; i++)
+        //for (int i = 0; i < cubDataHolder.cubData.Count; i++)
+        //{
+        //    if (cubDataHolder.cubData[i].tagName == "2DPuzzle")
+        //    {
+        //        cubDataHolder.MarkCubDead(cubDataHolder.cubData[i]);
+        //        break;
+        //    }
+        //}
+
+        //this is the same thing but more modular maybe
+        CubDataHolder.CubData foundCubData = CubDataHolder.CubDataUtility.FindCubDataByTag(cubDataHolder.cubData, "2DPuzzle");
+        if (foundCubData != null)
         {
-            if (cubDataHolder.cubData[i].tagName == "2DPuzzle")
-            {
-                cubDataHolder.MarkCubDead(cubDataHolder.cubData[i]);
-                break;
-            }
+            cubDataHolder.MarkCubDead(foundCubData);
         }
     }
 
