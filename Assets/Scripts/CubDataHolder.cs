@@ -27,6 +27,20 @@ public class CubDataHolder : MonoBehaviour
             isCubDead = false;
         }
     }
+    public static class CubDataUtility
+    {
+        public static CubData FindCubDataByTag(List<CubData> cubDataList, string tag)
+        {
+            foreach (CubData cubData in cubDataList)
+            {
+                if (cubData.tagName == tag)
+                {
+                    return cubData;
+                }
+            }
+            return null; // return null if tag not found
+        }
+    }
     public void CreateCubData(string tagName, Transform spawnLocation)
     {
         CubData pD = new CubData(tagName, spawnLocation);
