@@ -43,8 +43,8 @@ public class CubDataHolder : MonoBehaviour
     }
     public void CreateCubData(string tagName, Transform spawnLocation)
     {
-        CubData pD = new CubData(tagName, spawnLocation);
-        cubData.Add(pD);
+        CubData cD = new CubData(tagName, spawnLocation);
+        cubData.Add(cD);
     }
     public void RemoveCubData(string tagName)
     {
