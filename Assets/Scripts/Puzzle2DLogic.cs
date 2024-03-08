@@ -174,7 +174,7 @@ public class Puzzle2DLogic : MonoBehaviour
         //    }
         //}
 
-        //this is the same thing but more modular maybe
+        //this is the same thing but more modular maybe - Yes, but function name shouldn't be the same D:
         CubDataHolder.CubData foundCubData = CubDataHolder.CubDataUtility.FindCubDataByTag(cubDataHolder.cubData, "2DPuzzle");
         if (foundCubData != null)
         {
